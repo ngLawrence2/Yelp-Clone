@@ -5,7 +5,7 @@ class Api::UsersController < ApplicationController
     if @user.save
       log_in(@user)
     else
-      render json: @user.errors.full_messages
+      render json: @user.errors.full_messages, status: 404
     end
   end
 
