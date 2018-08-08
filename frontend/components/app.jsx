@@ -4,12 +4,13 @@ import NavBarContainer from './nav_bar/nav_bar_container.js';
 import {Route,Redirect,Switch,Link,HashRouter} from 'react-router-dom';
 import {AuthRoute,ProtectedRoute} from '../util/route_utils';
 import LoginFormContainer from './session/loginFormContainer';
+import SplashPage from './front_page/splash_page';
 const App = () => (
   <div>
-    <h1>Yelp</h1>
-      <Route path = "/" component={NavBarContainer}/>
+    <Route path = "/" component={SplashPage}/>
      <AuthRoute exact path="/signUp" component={SignUpContainer} />
      <AuthRoute exact path = "/login" component={LoginFormContainer}/>
+
   </div>
 );
 

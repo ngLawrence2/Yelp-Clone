@@ -7,6 +7,7 @@
 
     <%= stylesheet_link_tag    'application', media: 'all' %>
     <%= javascript_include_tag 'application' %>
+
     <% if current_user%>
       <script>
         window.current_user = {
@@ -16,6 +17,16 @@
         };
       </script>
     <% end %>
+    </script>
+
+    <script type ="text/javascript">
+      window.images = {
+        session: "<%= asset_path('signup_illustration.png')%>",
+        header_stars: "<%= asset_path('header_stars.png')%>",
+        front_page: "<%= asset_path('front_page.jpg')%>"
+      }
+    </script>
+
   </head>
 
   <body>

@@ -2,13 +2,62 @@
 
   h2 {
     color:red;
-    display: block;
+    font-size: 22px;
+    font-weight: bold;
+  }
+
+  form {
+    max-width: 300px;
+    display:block;
+    margin: 10px;
+    width:300px;
   }
 
   input {
-    display: block;
-    margin:10px;
+    width:300px;
+    height: 20px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
   }
 
+  button {
+    color:white;
+    background-color: red;
+    width: 300px;
+  }
 
+  img {
+    float:left;
+    padding: 0 15px;
+    box-sizing: border-box;
+  }
+
+  .nameInput {
+    display:flex;
+    justify-content: space-between;
+
+    input {
+      width:140px;
+    }
+  }
+
+  margin: 50px auto;
+  width:50%;
+  display:flex;
+  justify-content: space-around;
+}
+
+
+.changeLink {
+  font-size:13px;
+  float:right;
+  margin-top: 10px;
+  color: rgb(128, 128, 128);
+}
+
+.sessionHeader {
+  background-color: rgb(204, 0, 0);
+  height: 75px;
+  overflow:hidden;
 }

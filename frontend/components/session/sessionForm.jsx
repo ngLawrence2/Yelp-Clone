@@ -1,5 +1,6 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
+import Footer from '../footer/footer';
 
 class SessionForm extends React.Component {
   constructor(props) {
@@ -32,37 +33,38 @@ class SessionForm extends React.Component {
   changeLink() {
     if(this.props.formType==="Sign Up") {
       return (
-        <div>
+        <div className="changeLink">
           Already on Yelp? <Link to="/login">Log in</Link>
         </div>);
     }else {
       return (
-        <div>
+        <div className="changeLink">
           New to Yelp? <Link to="/signup">Sign Up</Link>
         </div>
       );
     }
   }
-  
+
 
   formType() {
     if(this.props.formType==="Sign Up") {
       return (
         <div>
-          <label>
-            <input type="text"
-              value={this.state.fname}
-              onChange={this.handleUpdate('fname')}
-              placeholder="First name"/>
-          </label>
+          <span className="nameInput">
+            <label>
+              <input type="text"
+                value={this.state.fname}
+                onChange={this.handleUpdate('fname')}
+                placeholder="First name"/>
+            </label>
 
-          <label>
-            <input type="text"
-              value={this.state.lname}
-              onChange={this.handleUpdate('lname')}
-              placeholder="Last name" />
-          </label>
-
+            <label>
+              <input type="text"
+                value={this.state.lname}
+                onChange={this.handleUpdate('lname')}
+                placeholder="Last name" />
+            </label>
+        </span>
           <label>
             <input type="text"
               value={this.state.zipCode}
@@ -80,10 +82,15 @@ class SessionForm extends React.Component {
     const signUpForms = this.formType();
     const links = this.changeLink();
     return (
+      <div>
+        <header className="sessionHeader">
+          <img src = {window.images.header_stars} />
+        </header>
       <div className= "signUpForm">
-          {this.renderErrors()}
-        <h2> {this.props.formType}</h2>
+        {this.renderErrors()}
+
         <form>
+        <h2> {this.props.formType}</h2>
           {signUpForms}
           <label>
             <input type="text"
@@ -99,9 +106,18 @@ class SessionForm extends React.Component {
                placeholder="password"/>
            </label>
            <button onClick={this.handleSubmit}>{this.props.formType}</button>
-           {links}
+          {links}
         </form>
+          <div className = "pictureContainer">
+            <img src = {window.images.session}/>
+          </div>
       </div>
+
+      <footer>
+          <Footer />
+      </footer>
+
+    </div>
     );
   }
 }
