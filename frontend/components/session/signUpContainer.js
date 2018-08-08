@@ -12,7 +12,8 @@ const mapStateToProps = state => {
     zipCode: ''
   };
   return {
-    formType: "signUp",
+    errors: state.error.session,
+    formType: "Sign Up",
     formState: currentState
   }
 }

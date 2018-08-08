@@ -3,22 +3,15 @@ import {connect} from 'react-redux';
 import {logInUser} from '../../actions/session/session';
 import SessionForm from './sessionForm';
 
-class LoginForm extends React.Component {
 
-  render() {
-      const {formType, formState, action} = this.props;
-      return (
-        <SessionForm action = {action} formType={formType} formState={formState}/>
-      );
-  }
-}
 
 
 const mapStateToProps = state => {
   let currentState = {email:'',password:''};
   return {
     formType: 'Login',
-    formState: currentState
+    formState: currentState,
+    errors: state.error.session
   }
 }
 
@@ -28,4 +21,4 @@ const mapDispatchToProps = dispatch => {
   }
 }
 
-export default connect(mapStateToProps,mapDispatchToProps)(LoginForm);
+export default connect(mapStateToProps,mapDispatchToProps)(SessionForm);
