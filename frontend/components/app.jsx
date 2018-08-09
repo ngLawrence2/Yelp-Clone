@@ -7,9 +7,10 @@ import LoginFormContainer from './session/loginFormContainer';
 import SplashPage from './front_page/splash_page';
 const App = () => (
   <div>
-    <Route path = "/" component={SplashPage}/>
+
      <AuthRoute exact path="/signUp" component={SignUpContainer} />
      <AuthRoute exact path = "/login" component={LoginFormContainer}/>
+    <Route exact path = "/" component={SplashPage}/>
 
   </div>
 );

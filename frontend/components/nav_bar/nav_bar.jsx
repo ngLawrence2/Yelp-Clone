@@ -1,29 +1,31 @@
 import React from 'react';
 import {Route,Redirect,Switch,Link,HashRouter} from 'react-router-dom';
+
 const NavBar = ({currentUser,logOutUser}) => {
 
-  const showCorrectLinks = () => {
-
+  const displayLogOut=()=> {
     if(currentUser) {
       return (
         <div>
-          <div className="navBar">
-            <div>
-
-              <h2>Write a Reiview</h2>
-              <h2>Events</h2>
-              <h2>Talk</h2>
-            </div>
-            <div>
-              <h1>{currentUser.name}</h1>
-              <button onClick={logOutUser}>LogOut</button>
-            </div>
-          </div>
+          <h1>{currentUser.name}</h1>
+          <button onClick={logOutUser}>LogOut</button>
         </div>
       );
     }
   }
 
+  const showCorrectLinks = () => {
+      return (
+        <div>
+          <div className="navBar">
+              <h2>Write a Reiview</h2>
+              <h2>Events</h2>
+              <h2>Talk</h2>
+              {displayLogOut()}
+          </div>
+        </div>
+      );
+  }
 
   return (
     <div>
