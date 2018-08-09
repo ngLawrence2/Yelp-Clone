@@ -44,7 +44,7 @@
 
   margin: 50px auto;
   width:50%;
-  height: 700px;
+  height: 500px;
   display:flex;
   justify-content: space-around;
 }
@@ -58,7 +58,35 @@
 }
 
 .sessionHeader {
+  position: relative;
   background-color: rgb(204, 0, 0);
   height: 75px;
+
+
+  .headerStars {
+    z-index: 2;
+    position: absolute;
+    top:0;
+  }
+
+  .headerLogo {
+    z-index:3;
+    display: block;
+    margin: 0 auto;
+
+  }
   overflow:hidden;
+}
+
+
+.session {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
+.userStatus {
+  display:flex;
+
+
 }

@@ -8,11 +8,13 @@ import SplashPage from './front_page/splash_page';
 const App = () => (
 
   <div>
+    <Switch>
      <AuthRoute exact path="/signUp" component={SignUpContainer} />
      <AuthRoute exact path = "/login" component={LoginFormContainer}/>
-     <Route exact path = "/" component={SplashPage}/>
+     <Route path = "/" component={SplashPage}/>
+    </Switch>
   </div>
-  
+
 );
 
 export default App;

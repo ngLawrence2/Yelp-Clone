@@ -11,12 +11,31 @@
 }
 
 .quickBusinessLinks {
+  display:flex;
+  width:60%;
+  margin: auto;
+  justify-content: space-between;
 
-
-   figure {
-
-     figcaption {
-       text-align: center;
+  a {
+     span{
+       figcaption {
+         text-align: center;
+         color:black;
+         font-weight: bold;
+       }
      }
    }
+
+
+   a:hover {
+     box-shadow:3px 3px 8px #888888;
+     span {
+       figcaption {
+        color:#1647a1;
+       }
+     }
+   }
+
+
+
 }

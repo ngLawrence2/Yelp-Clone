@@ -1,11 +1,12 @@
-footer {
-  position: relative;
-  bottom: -100%;
-  bottom: 0%;
-  background-color: lightgrey;
+.footer {
+  background-color: #ececf2;
+  padding-bottom: 20px;
   width:100%;
 
-  p {
-    margin: 10px;
+  img {
+    display: block;
+    margin:  auto;
+    margin-top: 50px;
   }
+
 }

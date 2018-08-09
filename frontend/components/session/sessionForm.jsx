@@ -2,16 +2,19 @@ import React from 'react';
 import {Link} from 'react-router-dom';
 import Footer from '../footer/footer';
 
+
 class SessionForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = this.props.formState;
     this.handleSubmit = this.handleSubmit.bind(this);
     this.formType = this.formType.bind(this);
-
+    this.demoLogin= this.demoLogin.bind(this);
   }
 
-  
+  componentWillUnmount() {
+    this.props.clearErrors();
+  }
 
   handleUpdate(field) {
     return e => this.setState({[field]:e.target.value})
@@ -21,6 +24,17 @@ class SessionForm extends React.Component {
     e.preventDefault();
     this.props.action(this.state);
   }
+
+  demoLogin(e) {
+    e.preventDefault();
+    let demoUser = {
+        email:'DemoUser@demo.com',
+        password:'demouser'
+    }
+
+    this.props.demoLogin(demoUser);
+  }
+
 
   renderErrors() {
     return(
@@ -84,9 +98,10 @@ class SessionForm extends React.Component {
     const signUpForms = this.formType();
     const links = this.changeLink();
     return (
-      <div>
+      <div className="session">
         <header className="sessionHeader">
-          <img src = {window.images.header_stars} />
+          <img className = "headerStars" src = {window.images.header_stars} />
+          <img className="headerLogo" src = {window.images.logo} />
         </header>
       <div className= "signUpForm">
         {this.renderErrors()}
@@ -108,6 +123,7 @@ class SessionForm extends React.Component {
                placeholder="password"/>
            </label>
            <button onClick={this.handleSubmit}>{this.props.formType}</button>
+           <button onClick={this.demoLogin}>Demo Login</button>
           {links}
         </form>
           <div className = "pictureContainer">
@@ -115,9 +131,9 @@ class SessionForm extends React.Component {
           </div>
       </div>
 
-      <footer>
+      <div>
           <Footer />
-      </footer>
+      </div>
 
     </div>
     );

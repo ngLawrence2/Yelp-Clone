@@ -7,20 +7,17 @@ const NavBar = ({currentUser,logOutUser}) => {
 
     if(currentUser) {
       return (
-        <span>
+        <span className = "userStatus">
           <h2>
-              {currentUser.fname} {currentUser.lname}
-              <button onClick={logOutUser}>LogOut</button>
-          </h2>
+              {currentUser.fname} {currentUser.lname} </h2>
+            <h2><button onClick={logOutUser}>LogOut</button></h2>
         </span>
       );
     } else {
       return (
-        <span>
-          <h2>
-              <Link to = "/login">Log In</Link>
-              <Link className = "signUp" to= "/signUp">Sign Up</Link>
-          </h2>
+        <span className = "userStatus">
+          <h2><Link to = "/login">Log In</Link> </h2>
+          <h2><Link className = "signUp" to= "/signUp">Sign Up</Link></h2>
         </span>
       );
     }

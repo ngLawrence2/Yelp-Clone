@@ -2,20 +2,8 @@ import React from 'react';
 
 const Footer = () => {
   return (
-    <div>
-
-      <div className="footerAbout">
-        <h3>About</h3>
-        <p>About Yelp</p>
-        <p>Careers</p>
-        <p>Press</p>
-        <p>Investor Relations</p>
-        <p>Content Guidelines</p>
-        <p>Terms of Service</p>
-        <p>Privacy Policy</p>
-        <p>Ad Choices</p>
-      </div>
-      
+    <div className = "footer">
+      <img src = "https://s3-media2.fl.yelpcdn.com/assets/srv0/yelp_styleguide/573fa19c8435/assets/img/structural/footer_cityscape.png" />
     </div>
   );
 };
