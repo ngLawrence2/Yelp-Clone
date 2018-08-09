@@ -6,13 +6,13 @@ import {AuthRoute,ProtectedRoute} from '../util/route_utils';
 import LoginFormContainer from './session/loginFormContainer';
 import SplashPage from './front_page/splash_page';
 const App = () => (
-  <div>
 
+  <div>
      <AuthRoute exact path="/signUp" component={SignUpContainer} />
      <AuthRoute exact path = "/login" component={LoginFormContainer}/>
-    <Route exact path = "/" component={SplashPage}/>
-
+     <Route exact path = "/" component={SplashPage}/>
   </div>
+  
 );
 
 export default App;

@@ -15,7 +15,7 @@ const Footer = () => {
         <p>Privacy Policy</p>
         <p>Ad Choices</p>
       </div>
-
+      
     </div>
   );
 };

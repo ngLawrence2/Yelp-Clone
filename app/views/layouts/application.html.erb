@@ -13,7 +13,8 @@
         window.current_user = {
           "id": <%= current_user.id %>,
           "email":"<%= current_user.email%>",
-          "name": "<%=current_user.fname%>  <%=current_user.lname%>"
+          "fname": "<%=current_user.fname%>",
+          "lname": "<%=current_user.lname%>"
         };
       </script>
     <% end %>
@@ -23,7 +24,13 @@
       window.images = {
         session: "<%= asset_path('signup_illustration.png')%>",
         header_stars: "<%= asset_path('header_stars.png')%>",
-        front_page: "<%= asset_path('front_page.jpg')%>"
+        front_page: "<%= asset_path('front_page.jpg')%>",
+        logo: "<%= asset_path('yelpLogo.png') %>",
+        restaurant: "<%= asset_path('restaurant.png') %>",
+        nightlife: "<%= asset_path('nightlife.png') %>",
+        homeServices: "<%= asset_path('homeServices.png') %>",
+        delivery: "<%= asset_path('delivery.png') %>",
+        search: "<%= asset_path('search.png') %>"
       }
     </script>
 
