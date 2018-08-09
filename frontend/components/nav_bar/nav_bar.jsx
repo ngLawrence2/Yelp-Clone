@@ -1,7 +1,16 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
 
-const NavBar = ({currentUser,logOutUser}) => {
+const NavBar = ({currentUser,logOutUser,demoLogin}) => {
+
+
+  const demo = () => {
+    let demoUser = {
+        email:'DemoUser@demo.com',
+        password:'demouser'
+    }
+    demoLogin(demoUser);
+  }
 
   const displayLogOut=()=> {
 
@@ -15,8 +24,11 @@ const NavBar = ({currentUser,logOutUser}) => {
       );
     } else {
       return (
+
+
         <span className = "userStatus">
           <h2><Link to = "/login">Log In</Link> </h2>
+          <h2><Link to= "/" onClick={demo}>Demo Login</Link></h2>
           <h2><Link className = "signUp" to= "/signUp">Sign Up</Link></h2>
         </span>
       );
@@ -46,8 +58,14 @@ const NavBar = ({currentUser,logOutUser}) => {
           </div>
 
           <div className="searchBar">
-            <input type="text" placeholder="burgers,barbers,spas,handymen..."/>
-            <input type="text" placeholder="San Francisco" />
+            <span>
+              <span className="catergory">Find</span>
+              <input type="text" placeholder="burgers,barbers,spas,handymen..."/>
+            </span>
+            <span>
+              <span className="catergory">Near</span>
+              <input type="text" placeholder="San Francisco" />
+            </span>
             <button type="button"><img src = {window.images.search} /></button>
           </div>
 

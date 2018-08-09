@@ -20,12 +20,26 @@
     .signUp {
       border: 1px solid white;
       color:white;
+      padding:5px;
+    }
+
+    .signUp:hover {
+      background:white;
+      color:gray;
     }
 
     .sessionLinks  {
       display: flex;
 
+      a {
+        color:white;
+      }
+
+      a:hover {
+        border-bottom: 1px solid white;
+      }
     }
+
     .allLinks {
       display: flex;
 
@@ -49,10 +63,22 @@
   .searchBar {
       display: flex;
       justify-content: center;
+      position:relative;
 
     input {
       width:500px;
       height: 40px;
+      text-indent: 50px;
+
+    }
+
+    .catergory {
+      position: absolute;
+      margin-top: 15px;
+      margin-left:5px;
+      font-weight: bold;
+      color:gray;
+
     }
 
     button {

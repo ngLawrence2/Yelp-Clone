@@ -40,7 +40,18 @@ class SessionForm extends React.Component {
     return(
       <ul>
         {this.props.errors.map((er,idx)=> {
-          return (<li key={idx}>{er}</li>)
+
+          if(er.indexOf('Fname') !==-1) {
+            er = "First Name can't be blank";
+          }
+          if(er.indexOf('Lname') !==-1) {
+            er = "First Name can't be blank";
+          }
+          if(er.indexOf('Zip Code') !==-1) {
+            er = "Zip Code can't be blank";
+          }
+
+          return (<ul key={idx}>{er}</ul>)
         })}
       </ul>
     );
@@ -93,7 +104,6 @@ class SessionForm extends React.Component {
   }
 
 
-
   render() {
     const signUpForms = this.formType();
     const links = this.changeLink();
@@ -104,7 +114,7 @@ class SessionForm extends React.Component {
           <img className="headerLogo" src = {window.images.logo} />
         </header>
       <div className= "signUpForm">
-        {this.renderErrors()}
+
 
         <form>
         <h2> {this.props.formType}</h2>
@@ -125,6 +135,9 @@ class SessionForm extends React.Component {
            <button onClick={this.handleSubmit}>{this.props.formType}</button>
            <button onClick={this.demoLogin}>Demo Login</button>
           {links}
+          <div className = "errorsList">
+              {this.renderErrors()}
+          </div>
         </form>
           <div className = "pictureContainer">
             <img src = {window.images.session}/>
