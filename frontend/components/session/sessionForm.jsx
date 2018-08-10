@@ -130,7 +130,7 @@ class SessionForm extends React.Component {
              <input type="text"
                value={this.state.password}
                onChange={this.handleUpdate('password')}
-               placeholder="password"/>
+               placeholder="Password"/>
            </label>
            <button onClick={this.handleSubmit}>{this.props.formType}</button>
            <button onClick={this.demoLogin}>Demo Login</button>
@@ -144,7 +144,7 @@ class SessionForm extends React.Component {
           </div>
       </div>
 
-      <div>
+      <div className= "sessionFooter">
           <Footer />
       </div>
 

@@ -18,13 +18,20 @@
     height: 20px;
     margin-top: 10px;
     margin-bottom: 10px;
-    border-radius: 5px;
+    border-radius: 3px;
+    border: 1px solid black;
+    padding: 5px;
+
   }
 
   button {
     color:white;
-    background-color: red;
-    width: 300px;
+
+    width: 100%;
+    padding: 10px;
+    font-weight: bold;
+    background-color: rgb(204, 0, 0);
+
   }
 
   img {
@@ -38,14 +45,15 @@
     justify-content: space-between;
 
     input {
-      width:140px;
+      width:135px;
     }
   }
 
   margin: 50px auto;
   width:50%;
-  height: 500px;
+
   display:flex;
+  padding: 100px;
   justify-content: space-around;
 }
 
@@ -93,4 +101,11 @@
 
 .userStatus {
   display:flex;
+}
+
+.sessionFooter {
+  position: absolute;
+  bottom: 0;
+  left:0;
+  width:100%;
 }

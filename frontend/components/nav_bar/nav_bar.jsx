@@ -60,7 +60,7 @@ const NavBar = ({currentUser,logOutUser,demoLogin}) => {
           <div className="searchBar">
             <span>
               <span className="catergory">Find</span>
-              <input type="text" placeholder="burgers,barbers,spas,handymen..."/>
+              <input type="text" placeholder="burgers, barbers ,spas, handymen..."/>
             </span>
             <span>
               <span className="catergory">Near</span>

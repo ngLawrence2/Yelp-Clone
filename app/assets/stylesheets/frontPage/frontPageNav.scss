@@ -15,12 +15,16 @@
         font-weight: bold;
         margin-top:40px;
         margin-right: 10px;
+        border-bottom: 2px solid transparent;
+        font-family: 'Open Sans', sans-serif;
       }
 
     .signUp {
-      border: 1px solid white;
+      border: 2px solid white;
       color:white;
-      padding:5px;
+      padding: 8px 15px;
+
+      border-radius: 5px;
     }
 
     .signUp:hover {
@@ -33,10 +37,11 @@
 
       a {
         color:white;
+        font-family: 'Open Sans', sans-serif;
       }
 
       a:hover {
-        border-bottom: 1px solid white;
+        border-bottom: 2px solid white;
       }
     }
 
@@ -68,14 +73,15 @@
     input {
       width:500px;
       height: 40px;
-      text-indent: 50px;
+      text-indent: 60px;
+      font-size: 20px;
 
     }
 
     .catergory {
       position: absolute;
       margin-top: 15px;
-      margin-left:5px;
+      margin-left:15px;
       font-weight: bold;
       color:gray;
 

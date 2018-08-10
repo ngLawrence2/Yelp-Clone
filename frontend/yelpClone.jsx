@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import Root from './components/root';
 import configureStore from './store/store';
-import {logInUser,logOutUser} from './actions/session/session';
+import {fetchBusiness,fetchBusinesses} from './util/business';
 
 document.addEventListener('DOMContentLoaded', () => {
   const root = document.getElementById('root');
@@ -19,9 +19,10 @@ document.addEventListener('DOMContentLoaded', () => {
     store= configureStore();
   }
   delete window.current_user;
-  window.logInUser=logInUser;
   window.store= store;
-  window.logOutUser=logOutUser;
+  window.fetchBusiness = fetchBusiness;
+  window.fetchBusinesses=fetchBusinesses;
+
 
   ReactDOM.render(<Root store={store} />, root);
 });
