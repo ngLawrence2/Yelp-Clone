@@ -1,20 +1,16 @@
 import {connect} from 'react-redux';
-import BusinessInfo from './businessInfo';
 import {withRouter} from 'react-router';
+import Reviews from './reviews';
 import {fetchBusiness} from '../../actions/business/business';
-const mapStateToProps = (state,ownProps) => {
 
+const mapStateToProps = (state,ownProps) => {
   return {
     business: state.entities.businesses[ownProps.match.params.business_id]
   }
 }
 
 const mapDispatchToProps = dispatch => {
-  return {
-    fetchBusiness: (id) => dispatch(fetchBusiness(id))
-  }
+  fetchBusiness: id => dispatch(fetchBusiness(id))
 }
 
-
-
-export default withRouter(connect(mapStateToProps,mapDispatchToProps)(BusinessInfo));
+export default withRouter(connect(mapStateToProps,mapDispatchToProps)(Reviews));

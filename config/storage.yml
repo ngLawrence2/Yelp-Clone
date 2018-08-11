@@ -6,6 +6,11 @@ local:
   service: Disk
   root: <%= Rails.root.join("storage") %>
 
+
+google_maps_dev
+  service: maps
+  access_key_id: <%=Rails.application.credentials.google_maps[:api_key]%>
+
 # Use rails credentials:edit to set the AWS secrets (as aws:access_key_id|secret_access_key)
 # amazon:
 #   service: S3
@@ -13,6 +18,7 @@ local:
 #   secret_access_key: <%= Rails.application.credentials.dig(:aws, :secret_access_key) %>
 #   region: us-east-1
 #   bucket: your_own_bucket
+
 
 # Remember not to checkin your GCS keyfile to a repository
 # google:

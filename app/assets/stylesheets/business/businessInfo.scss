@@ -34,9 +34,11 @@
           border: 1px solid rgb(205, 206, 216);
 
           img {
-            width:20px;
-            height:20px;
+            width:15px;
+            height:15px;
           }
+
+
         }
       }
       .reviewButton {
@@ -45,6 +47,7 @@
         height:40px;
         width:130px;
         font-size:13px;
+        border-radius: 5px;
       }
 
       .quickLinkStar {
@@ -55,4 +58,10 @@
 
     }
   }
+}
+
+
+.currentRating {
+  background-image: asset_url('ratings.png');
+
 }

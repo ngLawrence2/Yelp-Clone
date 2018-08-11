@@ -5,7 +5,7 @@ import {Route,Redirect,Switch,Link,HashRouter} from 'react-router-dom';
 import {AuthRoute,ProtectedRoute} from '../util/route_utils';
 import LoginFormContainer from './session/loginFormContainer';
 import SplashPage from './front_page/splash_page';
-import Business from './business/business';
+import BusinessContainer from './business/businessContainer';
 
 const App = () => (
 
@@ -14,7 +14,7 @@ const App = () => (
     <Switch>
      <AuthRoute exact path="/signUp" component={SignUpContainer} />
      <AuthRoute exact path = "/login" component={LoginFormContainer}/>
-     <Route path = "/businesses/:business_id" component={Business} />
+     <Route path = "/businesses/:business_id" component={BusinessContainer} />
      <Route exact path = "/" component={SplashPage}/>
      <Redirect to = "/" />
     </Switch>
