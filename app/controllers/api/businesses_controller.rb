@@ -1,5 +1,5 @@
 class Api::BusinessesController < ApplicationController
-  before_action :require_login
+  
 
   def index
     @businesses = Business.all

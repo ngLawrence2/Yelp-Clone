@@ -1,0 +1,58 @@
+.businessInformation {
+  margin: 60px auto;
+  width:930px;
+
+  h1 {
+    font-size: 50px;
+  }
+}
+
+.businessShow {
+  display: flex;
+  flex-direction: column;
+}
+
+.businessInfo {
+  .businessShowContainer {
+    display: flex;
+
+    .businessTitleHeader {
+      width:50%;
+    }
+
+    .quickBusinessLinks {
+      width:50%;
+      display:flex;
+
+      .socialMediaLinks {
+        margin:auto;
+        float:right;
+        button {
+          width:100px;
+          height:35px;
+          background-color: white;
+          border: 1px solid rgb(205, 206, 216);
+
+          img {
+            width:20px;
+            height:20px;
+          }
+        }
+      }
+      .reviewButton {
+        background-color: #bd1f1f;
+        color:white;
+        height:40px;
+        width:130px;
+        font-size:13px;
+      }
+
+      .quickLinkStar {
+        color:white;
+        margin-right: 3px;
+      }
+
+
+    }
+  }
+}

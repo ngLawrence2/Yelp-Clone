@@ -1,12 +1,12 @@
-import {RECEIVE_BUSINESSES,RECEIVE_BUSINESS} from '../actions/business/business';
+import {RECEIVE_ALL_BUSINESSES,RECEIVE_BUSINESS} from '../actions/business/business';
 
 const BusinessReducer = (state={},action) => {
   Object.freeze(state);
   switch (action.type) {
-    case RECEIVE_BUSINESSES:
+    case RECEIVE_ALL_BUSINESSES:
       return action.businesses;
     case RECEIVE_BUSINESS:
-      return action.business;
+      return action.payload.business;
     default:
       return state;
   }

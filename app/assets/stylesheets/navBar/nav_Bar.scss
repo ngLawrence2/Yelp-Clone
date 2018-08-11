@@ -1,3 +1,107 @@
-.navBar {
 
+.header {
+  background-color: #d32323;
+  height:75px;
+
+  .searchBarNav {
+    display: flex;
+    width: 60%;
+    justify-content: center;
+    margin: auto;
+    align-items: center;
+    background-color: #d32323;
+      background-image: asset_url("header_stars.png");
+    .signUpButton {
+      float:right;
+      margin-left:20px;
+      background-color:rgb(180, 0, 0);
+      a {
+        color:white;
+      }
+      padding:15px;
+    }
+
+    .signUpButton:hover {
+      background-color:rgb(140, 0, 0);
+    }
+
+    .searchLogo {
+        img {
+          margin-right:40px;
+          height:70px;
+        }
+    }
+    .searchBar {
+      display: flex;
+      align-items: center;
+      .catergory {
+        position: absolute;
+        margin-top: 15px;
+        margin-left:15px;
+        font-weight: bold;
+        color:gray;
+
+      }
+
+      button {
+
+        background-color: rgb(204, 0, 0);
+        height: 45px;
+        width: 45px;
+        padding:10px;
+        img {
+            height:20px;
+            width:20px;
+        }
+
+      }
+      input {
+        height:40px;
+        width:300px;
+        text-indent:60px;
+        font-size:15px;
+
+      }
+
+      .span {
+        background-color: white;  width: 60%;
+      }
+    }
+  }
+
+    .quickLinkContainer {
+        background-color: #bd1f1f;
+        width:100%;
+        height: 30px;
+  .headerLinks {
+    width:930px;
+    margin:auto;
+    display:flex;
+    justify-content: space-between;
+    .links {
+      a {
+        color:white;
+        margin-right: 20px;
+        img {
+          width:20px;
+          height:20px;
+        }
+      }
+      a:hover {
+        background-color:rgb(150, 0, 0);
+      }
+    }
+    .LogIn {
+        margin-right: 5px;
+        margin-top:5px;
+        width:60px;
+        a{
+          color:white;
+        }
+    }
+    .LogIn:hover {
+        background-color:rgb(150, 0, 0);
+    }
+  }
+  }
 }

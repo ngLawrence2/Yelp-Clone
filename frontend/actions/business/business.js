@@ -1,25 +1,28 @@
 import * as BusinessApiUtil from '../../util/business';
-export const RECEIVE_BUSINESS = "RECEIVE_BUSINESS";
-export const RECEIVE_BUSINESSES = "RECEIVE_BUSINESSES";
 
-const receiveBusinesses = businesses => {
+export const RECEIVE_ALL_BUSINESSES = "RECEIVE_BUSINESSES";
+export const RECEIVE_BUSINESS = "RECEIVE_BUSINESS";
+
+
+export const receiveAllBusinesses = businesses => {
   return {
-      type:RECEIVE_BUSINESSES,
+      type:RECEIVE_ALL_BUSINESSES,
       businesses
   }
 }
 
-const receiveBusiness = business => {
+export const receiveBusiness = payload => {
+
   return {
     type:RECEIVE_BUSINESS,
-    business
+    payload
   }
 }
 
 export const fetchBusinesses = () => dispatch => {
-  return BusinessApiUtil.fetchBusinesses().then(businesses => dispatch(receiveBusinesses(businesses)));
+ return BusinessApiUtil.fetchAllBusinesses().then(businesses=>dispatch(receiveAllBusinesses(businesses)))
 }
 
 export const fetchBusiness = id => dispatch => {
-  return BusinessApiUtil.fetchBusiness(id).then(business => dispatch(receiveBusiness(business)))
+  return BusinessApiUtil.fetchBusiness(id).then(payload => dispatch(receiveBusiness(payload)))
 }
