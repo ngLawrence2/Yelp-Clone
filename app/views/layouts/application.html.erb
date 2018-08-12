@@ -2,6 +2,9 @@
 <html>
   <head>
     <title>YelpClone</title>
+    <% google_map_link = "https://maps.googleapis.com/maps/api/js?key=" + ENV['google_map_key'] %>
+
+    <script src= "<%= google_map_link %>" type="text/javascript"></script>
     <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">

@@ -4,6 +4,21 @@ json.set! :business do
   end
 end
 
+json.set! :keywords do
+  @business.keyword.each do |k|
+    json.extract! k, :id,:name
+  end
+end
+
+json.set! :photos do
+  @business.photo.each do |ph|
+    json.set! ph.id do
+      json.extract! ph, :id
+      json.photoUrl url_for(ph)
+    end
+  end
+end
+
 json.set! :reviews do
   @business.reviews.each do |rev|
     json.extract! rev, :id,:user_id,:rating,:body

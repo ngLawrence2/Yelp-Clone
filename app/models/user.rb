@@ -1,5 +1,6 @@
 class User < ApplicationRecord
 
+  has_many_attached :photo
   validates :fname,:lname,:zipCode,:password_digest, presence:true
   validates :password, length: {minimum:6, allow_nil:true}
   validates :email, :session_token, uniqueness:true, presence:true
