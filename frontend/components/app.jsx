@@ -6,6 +6,7 @@ import {AuthRoute,ProtectedRoute} from '../util/route_utils';
 import LoginFormContainer from './session/loginFormContainer';
 import SplashPage from './front_page/splash_page';
 import BusinessContainer from './business/businessContainer';
+import AddPhotoContainer from './photo/addPhotoContainer';
 
 const App = () => (
 
@@ -15,6 +16,8 @@ const App = () => (
      <AuthRoute exact path="/signUp" component={SignUpContainer} />
      <AuthRoute exact path = "/login" component={LoginFormContainer}/>
      <Route path = "/businesses/:business_id" component={BusinessContainer} />
+     <Route path = "/business/:business_id/upload" component={AddPhotoContainer} />
+
      <Route exact path = "/" component={SplashPage}/>
      <Redirect to = "/" />
     </Switch>

@@ -3,6 +3,7 @@ import sessionReducer from './session';
 import errorsReducer from './errorsReducer';
 import entitiesReducer from './entitiesReducer';
 
+
 export default combineReducers({
   session: sessionReducer,
   error: errorsReducer,

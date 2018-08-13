@@ -1,4 +1,5 @@
 import React from 'react';
+import {Link} from 'react-router-dom';
 
 class BusinessInfo extends React.Component {
 
@@ -21,8 +22,7 @@ class BusinessInfo extends React.Component {
         [0,-27],
         [0,-1]
       ];
-      const resultPos = ratingsPosition.length-rating*2;
-      console.log(resultPos);
+      const resultPos = ratingsPosition.length-(rating*2);
       const xPos = ratingsPosition[resultPos][0];
       const yPos = ratingsPosition[resultPos][1];
       let position = {
@@ -36,7 +36,11 @@ class BusinessInfo extends React.Component {
       );
     }
 
+
+
+
   render() {
+    const keyword = Object.keys(this.props.keywords);
     return (
       <div>
         <div className="businessInfo">
@@ -45,13 +49,15 @@ class BusinessInfo extends React.Component {
               <h1>{this.props.business.name}</h1>
                 {this.getStars(this.props.business.rating)}
               <div>
-                {this.props.business.price}
+                <div className= "priceKeywordContainer">
+                  {this.props.business.price} - {keyword.map( key => <div key={key}>{this.props.keywords[key].name}</div>)}
+                </div>
               </div>
             </div>
             <div className="quickBusinessLinks">
                 <button className="reviewButton"><span className="fa fa-star quickLinkStar"></span>Write a Review</button>
                 <div className="socialMediaLinks">
-                  <button><img src={window.images.camera}/>Add Photo</button>
+                  <Link to = {`/business/${this.props.business.id}/upload`}><button><img src={window.images.camera}/>Add Photo</button></Link>
                   <button><img src = {window.images.saveIcon} />Share</button>
                   <button><img src ={window.images.share}/>Save</button>
                 </div>

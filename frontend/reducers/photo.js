@@ -6,6 +6,9 @@ const PhotoReducer = (state={},action) => {
     case RECEIVE_ALL_BUSINESSES:
       return action.businesses;
     case RECEIVE_BUSINESS:
+      if(!action.payload.photos) {
+        return {};
+      }
       return action.payload.photos;
     default:
       return state;

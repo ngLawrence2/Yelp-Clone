@@ -5,6 +5,9 @@ const UserReducer = (state={},action) => {
   switch (action.type) {
     case RECEIVE_ALL_BUSINESSES:
     case RECEIVE_BUSINESS:
+      if(!action.payload.users) {
+        return {};
+      }
       return action.payload.users;
     default:
       return state;

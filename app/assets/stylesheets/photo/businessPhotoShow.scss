@@ -1,0 +1,15 @@
+.photoSection {
+  margin-top: 30px;
+  display:flex;
+  width:70%;
+
+  img{
+    height:250px;
+    display:flex;
+  }
+  img:hover {
+  transform: scale(1.2);
+  }
+
+
+}

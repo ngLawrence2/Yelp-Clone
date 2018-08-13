@@ -1,0 +1,76 @@
+.addPhotoContainer {
+  width:100%;
+  margin-top: 70px;
+  display: flex;
+  justify-content: center;
+
+
+  .AddPhotoDetails {
+    width:930px;
+    display:flex;
+    font-size:30px;
+    font-weight:bold;
+    flex-direction: column;
+
+    .viewAllPhotos {
+      font-size: 15px;
+      margin-top: 10px;
+
+      a:hover {
+        text-decoration: underline;
+      }
+
+    }
+
+
+
+    .nameContainer {
+      display: flex;
+    }
+
+    h1 {
+      color:blue;
+    }
+
+    h1:hover {
+      text-decoration: underline;
+    }
+    span {
+      margin-top:1px;
+      color:red;
+    }
+
+
+
+  }
+}
+
+.addPhotoBox {
+  width:830px;
+  height: 400px;
+  margin:auto;
+  margin-top: 50px;
+  border:3px dashed gray;
+  border-radius: 20px;
+  display:flex;
+  align-items: center;
+
+  .browseFiles {
+    margin: auto;
+
+    input[type="file"] {
+      display: none;
+    }
+
+    label {
+      width:100px;
+      cursor: pointer;
+      font-size: 20px;
+      padding: 5px 10px;
+      background-color: red;
+      color:white;
+      border-radius: 5px;
+    }
+  }
+
+}

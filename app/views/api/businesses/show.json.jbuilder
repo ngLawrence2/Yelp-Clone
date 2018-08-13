@@ -6,7 +6,9 @@ end
 
 json.set! :keywords do
   @business.keyword.each do |k|
-    json.extract! k, :id,:name
+    json.set! k.id do
+      json.extract! k, :id,:name
+    end
   end
 end
 

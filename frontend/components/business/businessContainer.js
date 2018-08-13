@@ -6,7 +6,8 @@ import {fetchBusiness} from '../../actions/business/business';
 const mapStateToProps = (state,ownProps) => {
   return {
     business: state.entities.businesses[ownProps.match.params.business_id],
-    photos: state.entities.photos
+    photos: state.entities.photos,
+    keywords: state.entities.keywords
   }
 }
 

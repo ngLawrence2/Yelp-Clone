@@ -1,3 +1,81 @@
 .sideBar {
   width:30%;
+  margin-top: 15px;
+  border-left: 1px solid  rgb(230, 230, 230);
+}
+
+.todayHours {
+  border: 1px solid rgb(230, 230, 230);
+  height:50px;
+  display: flex;
+  align-items: center;
+  padding-left: 10px;
+
+  .currentHours {
+    font-weight: bold;
+    margin-left: 5px;
+    padding-right: 20px;
+  }
+}
+
+.priceRange {
+  display:flex;
+  flex-direction: row;
+  padding: 10px;
+
+  .priceEstimate {
+      font-weight: 900;
+  }
+  .actualPrice {
+    color:green;
+    font-weight: 900;
+  }
+  .allPrices {
+    color: gray;
+    font-weight: 900;
+    margin-right: 10px;
+  }
+}
+
+.moreInfo {
+  margin-top: 10px;
+  padding: 0 10px;
+}
+
+.answers {
+  font-weight: 900;
+}
+
+.healthScore {
+  margin-top: 10px;
+  padding:10px;
+}
+
+
+
+.hoursSection {
+  padding: 20px;
+  display:flex;
+  flex-direction: column;
+  header {
+    font-weight: bold;
+    color:red;
+    margin-bottom: 10px;
+  }
+
+  .dayHours {
+    float:right;
+  }
+
+  .currentDay {
+    font-weight: bold;
+  }
+}
+
+.moreInfo {
+  margin-top: 10px;
+}
+.answers {
+  margin-left: 10px;
+  font-weight: bold;
 }

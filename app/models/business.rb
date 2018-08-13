@@ -1,5 +1,6 @@
 class Business < ApplicationRecord
   validates :name,:lat,:lng,:zipCode,:hours,:price,:phone,:city,:address, :rating, presence:true
+
   has_many_attached :photo
 
   has_many :reviews
@@ -8,6 +9,5 @@ class Business < ApplicationRecord
 
   has_many :keyword,
   through: :category
-
 
 end

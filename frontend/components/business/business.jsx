@@ -30,6 +30,7 @@ class Business extends React.Component {
       return null;
     }
 
+
     let photoKeys = Object.keys(this.props.photos);
 
   return (
@@ -37,27 +38,34 @@ class Business extends React.Component {
       <div className="topNavBar">
       <SearchNavBar />
       </div>
-      <div className="businessInformation">
-          <BusinessInfo business={this.props.business} />
+      <div className="businessMapPhotoContainer">
+        <div className="businessInformation">
+            <BusinessInfo business={this.props.business} keywords={this.props.keywords} />
 
-        <div className="mapPhotoContainer">
-            <div className="googleMap" onClick={this.openDirections}>
-              <MapBusiness title={this.props.business.name} loc={{lat: this.props.business.lat, lng: this.props.business.lng}}/>
-              <div className="caption">
-                {this.props.business.address} <br/>
-              {this.props.business.city} {this.props.business.zipCode} CA <br />
-              {this.props.business.phone}
-              <br />
-              <a onClick={this.openDirections}>Get Directions</a>
+          <div className="mapPhotoContainer">
+              <div className="googleMap" onClick={this.openDirections}>
+                <MapBusiness title={this.props.business.name} loc={{lat: this.props.business.lat, lng: this.props.business.lng}}/>
+                <div className="caption">
+                  {this.props.business.address} <br/>
+                {this.props.business.city} {this.props.business.zipCode} CA <br />
+                {this.props.business.phone}
+                <br />
+                <a onClick={this.openDirections}>Get Directions</a>
+                </div>
+
+
               </div>
-            </div>
-            {photoKeys.map( photoId => (
-              <div key={photoId}>
-                <BusinessPhotos photoId={photoId} photos={this.props.photos} />
+
+              <div className="photoSection">
+              {photoKeys.map( photoId => (
+                <div className="photos" key={photoId}>
+                  <BusinessPhotos photoId={photoId} photos={this.props.photos} />
+                </div>
+              ))}
+
               </div>
-            ))}
+        </div>
       </div>
-
 
 
       </div>

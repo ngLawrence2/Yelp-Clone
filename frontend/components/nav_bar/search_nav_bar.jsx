@@ -12,7 +12,7 @@ class SearchNavBar extends React.Component {
       <div className="header">
             <div className="searchBarNav">
               <div className="searchLogo">
-                <img src = {window.images.logo} />
+                <Link to = "/"><img src = {window.images.logo} /></Link>
               </div>
 
               <div className="searchBar">

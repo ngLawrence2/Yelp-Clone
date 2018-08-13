@@ -7,6 +7,7 @@ class MapBusiness extends React.Component {
   }
 
   componentDidMount() {
+
     const map = ReactDOM.findDOMNode(this.refs.map);
     const latlng = new google.maps.LatLng(this.props.loc);
     const options = {
@@ -23,11 +24,9 @@ class MapBusiness extends React.Component {
 
 
   render() {
-    
+
     return (
-
         <div className="map" ref="map"/>
-
     );
   }
 }
