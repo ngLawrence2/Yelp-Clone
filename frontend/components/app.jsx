@@ -7,7 +7,8 @@ import LoginFormContainer from './session/loginFormContainer';
 import SplashPage from './front_page/splash_page';
 import BusinessContainer from './business/businessContainer';
 import AddPhotoContainer from './photo/addPhotoContainer';
-
+import AllPhotoContainer from './photo/allPhotoContainer';
+import BusinessIndexContainer from './business/businessIndexContainer';
 const App = () => (
 
   <div>
@@ -17,7 +18,8 @@ const App = () => (
      <AuthRoute exact path = "/login" component={LoginFormContainer}/>
      <Route path = "/businesses/:business_id" component={BusinessContainer} />
      <Route path = "/business/:business_id/upload" component={AddPhotoContainer} />
-
+     <Route path = "/business/:business_id/photos" component={AllPhotoContainer} />
+     <Route path = "/businesses" component={BusinessIndexContainer}/>
      <Route exact path = "/" component={SplashPage}/>
      <Redirect to = "/" />
     </Switch>

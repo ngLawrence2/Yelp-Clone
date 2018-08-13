@@ -1,0 +1,30 @@
+.currentBusinessContainer {
+  display:flex;
+  margin-top: 30px;
+  width:930px;
+  margin-left: auto;
+  margin-right: auto;
+
+  img {
+    margin:10px;
+    width:150px;
+    height:150px;
+    border-radius: 10px;
+  }
+  img:hover {
+   opacity: 0.5;
+  }
+}
+
+.allPhotosHeader {
+  font-size: 30px;
+  // margin-top: 40px;
+  display:flex;
+  width:930px;
+  margin: 50px auto 0;
+  font-weight:bold;
+  flex-direction: column;
+  a {
+    font-size:15px;
+  }
+}

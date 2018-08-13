@@ -8,7 +8,6 @@ class Api::BusinessesController < ApplicationController
 
   def update
     @business = Business.find(params[:id])
-
     @business.photo.attach(params[:business][:photos])
     render "api/businesses/show"
   end

@@ -4,12 +4,14 @@
   width:70%;
 
   img{
+    width:250px;
     height:250px;
     display:flex;
   }
   img:hover {
-  transform: scale(1.2);
+    transform: scale(1.2);
   }
+  
 
 
 }

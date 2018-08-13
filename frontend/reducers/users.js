@@ -3,7 +3,6 @@ import {RECEIVE_BUSINESS,RECEIVE_ALL_BUSINESSES} from '../actions/business/busin
 const UserReducer = (state={},action) => {
   Object.freeze(state);
   switch (action.type) {
-    case RECEIVE_ALL_BUSINESSES:
     case RECEIVE_BUSINESS:
       if(!action.payload.users) {
         return {};

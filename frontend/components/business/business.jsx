@@ -7,6 +7,7 @@ import MapBusiness from './map';
 // import SideBarContainer from './sideBarInfoContainer';
 import SideBarInfo from './sideBarInfo';
 import BusinessPhotos from './photos';
+import {Link} from 'react-router-dom';
 
 class Business extends React.Component {
   constructor(props) {
@@ -31,7 +32,7 @@ class Business extends React.Component {
     }
 
 
-    let photoKeys = Object.keys(this.props.photos);
+    const photoKeys = Object.keys(this.props.photos).slice(0,3);
 
   return (
     <div className="businessShow">
@@ -64,6 +65,9 @@ class Business extends React.Component {
               ))}
 
               </div>
+
+              <Link to = {`/business/${this.props.business.id}/photos`} className="viewBusinessPhotos" >See all {Object.keys(this.props.photos).length}</Link>
+
         </div>
       </div>
 
