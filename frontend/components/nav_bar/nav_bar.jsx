@@ -53,7 +53,15 @@ class NavBar extends React.Component {
   search(e) {
 
     e.preventDefault();
-    this.props.fetchBusinesses([this.state.find,this.state.near]);
+    const search = {
+      find:this.state.find,
+      near: this.state.near
+    };
+
+    this.props.fetchBusinesses(search).then((search) => {
+      console.warn(search);
+      this.props.history.push("/businesses");
+    });
   }
 
   navBar() {
@@ -77,7 +85,7 @@ class NavBar extends React.Component {
         <div className="logoImage">
           <img src = {window.images.logo} />
         </div>
-
+        <form onSubmit={this.search}>
         <div className="searchBar">
           <span>
             <span className="catergory">Find</span>
@@ -88,9 +96,10 @@ class NavBar extends React.Component {
             <span className="catergory">Near</span>
             <input type="text" onChange={this.handleUpdate('near')} placeholder="San Francisco" value={this.state.near} />
           </span>
-        <button type="button" onClick={this.search}><Link to = "/businesses"><img src = {window.images.search} /> </Link></button>
-        </div>
+        <input type="submit" />
 
+        </div>
+</form>
         <div className="quickLinks">
           <Link to = "#"><img src = {window.images.restaurant} />Restaurants</Link>
           <Link to ="#"><img src = {window.images.nightlife} />NightLife</Link>
@@ -99,7 +108,7 @@ class NavBar extends React.Component {
         </div>
       </div>
     );
-  }
+  }debugger;
 
   render() {
     return(

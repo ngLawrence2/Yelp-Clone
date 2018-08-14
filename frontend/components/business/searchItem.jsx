@@ -8,7 +8,10 @@ class SearchItem extends React.Component {
     this.getAltImage=this.getAltImage.bind(this);
   }
 
+
+
   getAltImage() {
+
     if(this.props.business.businessPhoto.length < 50) {
       return "https://st3.depositphotos.com/5266903/14457/v/450/depositphotos_144579495-stock-illustration-house-vector-icon.jpg";
     }else {
@@ -23,6 +26,9 @@ class SearchItem extends React.Component {
   }
 
   render() {
+    if(!this.props.business.businessPhoto) {
+      return null;
+    }
     this.getAltImage();
 
     return (

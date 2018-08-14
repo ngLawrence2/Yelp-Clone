@@ -7,15 +7,16 @@ class Business < ApplicationRecord
 
   has_many :category
 
-  has_many :keyword,
+  has_many :keywords,
   through: :category
 
   def getAverage
     reviews.average(:rating)
   end
 
-  def self.sameCategory(category)
-    
-  end
+  # def self.sameCategory(category)
+  #   debugger;
+  #   self.where(:keyword => category)
+  # end
 
 end

@@ -4,11 +4,13 @@ import PhotoReducer from './photo';
 import ReviewReducer from './reviews';
 import UserReducer from './users';
 import KeywordReducer from './keywords';
+import FilterReducer from './filter';
 
 export default combineReducers({
   businesses: BusinessReducer,
   photos: PhotoReducer,
   reviews: ReviewReducer,
   keywords: KeywordReducer,
-  users: UserReducer
+  users: UserReducer,
+  filters: FilterReducer
 });

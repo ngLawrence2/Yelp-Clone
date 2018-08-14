@@ -1,6 +1,8 @@
 import {connect} from 'react-redux';
 import {fetchBusinesses} from '../../actions/business/business';
 import BusinessIndex from './businessIndex';
+import {filterByPrice} from '../../reducers/selectors';
+import {saveFilter} from '../../actions/business/business';
 
 const mapStateToProps = state => {
   return {
@@ -10,7 +12,8 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    fetchBusinesses: ()=> dispatch(fetchBusinesses())
+    fetchBusinesses: (empty)=> dispatch(fetchBusinesses(empty)),
+    saveFilter: (filter)=> dispatch(saveFilter(filter))
   }
 }
 

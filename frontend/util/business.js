@@ -1,8 +1,13 @@
-export const fetchAllBusinesses = (keyword) => {
+export const fetchAllBusinesses = ({near, find}) => {
   return $.ajax({
     method:'GET',
     url: '/api/businesses',
-    data: {keyword}
+    data: {
+      search: {
+        near,
+        find
+      }
+    }
   });
 }
 

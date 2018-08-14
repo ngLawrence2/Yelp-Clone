@@ -2,7 +2,14 @@ import * as BusinessApiUtil from '../../util/business';
 
 export const RECEIVE_ALL_BUSINESSES = "RECEIVE_BUSINESSES";
 export const RECEIVE_BUSINESS = "RECEIVE_BUSINESS";
+export const SAVE_FILTER = "RECEIVE_FILTER";
 
+export const saveFilter = filter => {
+  return {
+    type: SAVE_FILTER,
+    filter
+  };
+}
 
 export const receiveAllBusinesses = businesses => {
   return {

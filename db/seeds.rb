@@ -16,7 +16,7 @@ u1 = User.create(fname:'Demo',lname:'User',zipCode:99999,email:'DemoUser@demo.co
 
 b1 = Business.create(name:"Creator", address:"680 Folsom St Ste 120",lat:37.784558,lng:-122.398564,zipCode:94107,hours:["10:00am-9:00pm", "10:00am-9:00pm", "10:00am-9:00pm", "10:00am-9:00pm", "10:00am-12:00am", "10:00am-1:00am", "Closed" ],price:"$$",phone:"(806)680-3657",city:"San Francisco",rating:3.5)
 b2 = Business.create(name:"secondbusiness", address:"600 Brodayway St Ste 120",lat:37.5321,lng:-123.39864,zipCode:94107,hours:["12:00pm-6:00pm", "12:00pm-8:00pm", "12:00pm-8:00pm", "12:00pm-8:00pm",
-  "12:00pm-10:00pm", "11:00am-10:00pm", "11:00am-6:00pm" ],price:"$$",phone:"(806)633-3657",city:"San Francisco",rating:2)
+  "12:00pm-10:00pm", "11:00am-10:00pm", "11:00am-6:00pm" ],price:"$",phone:"(806)633-3657",city:"San Francisco",rating:2)
 
 
 

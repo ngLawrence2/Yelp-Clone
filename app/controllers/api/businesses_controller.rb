@@ -2,12 +2,11 @@ class Api::BusinessesController < ApplicationController
 
 
   def index
-    @businesses = Business.all
-    
-    if params[:keyword]
-
+    if (params[:search][:find].length>0 || params[:search][:near].length>0)
+      @businesses = Business.includes(:keywords).where(keywords: {name: params[:search][:find]})
+    else
+      @businesses = Business.all
     end
-
     render "api/businesses/index"
   end
 
@@ -27,12 +26,10 @@ class Api::BusinessesController < ApplicationController
     def business_params
       params.require(:business).permit(photo:[])
     end
-
-    def getCategory
-      params[:keyword][0].downcase!.capitalize!
-    end
-
-    def getLocation
-      params[:keyword][1]
-    end
 end
+
+# data: {
+#   search: {
+#     location: "San Francisco"
+#   }
+# }
