@@ -1,6 +1,6 @@
 import React from 'react';
 import SearchNavBar from '../nav_bar/search_nav_bar.jsx';
-import {Link} from 'react-router-dom';
+import {Link,Redirect} from 'react-router-dom';
 
 
 class AddPhoto extends React.Component {
@@ -29,6 +29,10 @@ class AddPhoto extends React.Component {
         contentType: false,
         processData: false
       });
+
+      //add ajax call that updates the user
+      //redirect
+
     })
   }
 

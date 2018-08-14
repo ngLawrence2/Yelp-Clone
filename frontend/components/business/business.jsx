@@ -37,7 +37,7 @@ class Business extends React.Component {
   return (
     <div className="businessShow">
       <div className="topNavBar">
-      <SearchNavBar />
+      <SearchNavBar/>
       </div>
       <div className="businessMapPhotoContainer">
         <div className="businessInformation">

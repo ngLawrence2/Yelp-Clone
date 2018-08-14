@@ -1,0 +1,56 @@
+.businessResults {
+  width:930px;
+  margin: auto;
+}
+
+.searchResultContainer {
+
+  .searchResultInfo {
+    width:100%;
+    padding:10px;
+    line-height: 1.5;
+    display: flex;
+    flex-direction: column;
+
+    .reviewPrev {
+        font-size: 15px;
+    }
+    .searchBusInfoContainer {
+      display:flex;
+      justify-content: space-between;
+      margin-left: 10px;
+
+      .searchResultBusinessContact {
+          .phoneResult {
+          text-align: right;
+          }
+      }
+    }
+  }
+  padding:20px;
+  display: flex;
+
+
+  border-top:1px solid #e6e6e6;
+  border-bottom:1px solid #e6e6e6;
+  width:70%;
+  .searchResultInfo {
+    display:flex;
+      justify-content: space-between;
+
+      .reviewPrev {
+          padding:10px;
+      }
+
+  }
+  .searchResBusinessPhoto {
+    img {
+      width:200px;
+      height:200px;
+      border-radius: 10px;
+    }
+  }
+
+
+
+}

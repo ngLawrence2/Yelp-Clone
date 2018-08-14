@@ -6,8 +6,16 @@ class SearchNavBar extends React.Component {
     super(props);
   }
 
+  displaySession() {
+    if(this.props.currentUser) {
+      return ( <Link to = "/login">Log In</Link> );
+    } else {
+      return (<button onClick={this.props.logOutUser}>LogOut</button>);
+    }
+  }
 
   render() {
+
     return (
       <div className="header">
             <div className="searchBarNav">

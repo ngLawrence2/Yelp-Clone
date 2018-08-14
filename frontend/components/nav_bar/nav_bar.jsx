@@ -9,6 +9,11 @@ class NavBar extends React.Component {
     this.displayLogOut=this.displayLogOut.bind(this);
     this.demo=this.demo.bind(this);
     this.navBar=this.navBar.bind(this);
+    this.state = {
+      find: '',
+      near: ''
+    };
+    this.search=this.search.bind(this);
   }
 
 
@@ -45,6 +50,12 @@ class NavBar extends React.Component {
    }
   }
 
+  search(e) {
+
+    e.preventDefault();
+    this.props.fetchBusinesses([this.state.find,this.state.near]);
+  }
+
   navBar() {
     return (
       <div>
@@ -71,13 +82,13 @@ class NavBar extends React.Component {
           <span>
             <span className="catergory">Find</span>
             <input type="text"
-              onChange={this.handleUpdate('find')} placeholder="burgers, barbers ,spas, handymen..."/>
+              onChange={this.handleUpdate('find')} placeholder="burgers, barbers ,spas, handymen..." value={this.state.find}/>
           </span>
           <span>
             <span className="catergory">Near</span>
-            <input type="text" onChange={this.handleUpdate('Near')} placeholder="San Francisco" />
+            <input type="text" onChange={this.handleUpdate('near')} placeholder="San Francisco" value={this.state.near} />
           </span>
-          <button type="button"><img src = {window.images.search} /></button>
+        <button type="button" onClick={this.search}><Link to = "/businesses"><img src = {window.images.search} /> </Link></button>
         </div>
 
         <div className="quickLinks">

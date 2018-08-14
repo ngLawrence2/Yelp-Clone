@@ -1,6 +1,7 @@
 import {connect} from 'react-redux';
 import NavBar from './nav_bar';
 import {logOutUser,logInUser} from '../../actions/session/session';
+import {fetchBusinesses} from '../../actions/business/business';
 
 const mapStateToProps=  state => {
   return {
@@ -11,7 +12,8 @@ const mapStateToProps=  state => {
 const mapDispatchToProps= dispatch => {
   return {
     logOutUser: ()=> dispatch(logOutUser()),
-    demoLogin: user => dispatch(logInUser(user))
+    demoLogin: user => dispatch(logInUser(user)),
+    fetchBusinesses: (keyword) => dispatch(fetchBusinesses(keyword))
   }
 }
 

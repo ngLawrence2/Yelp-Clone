@@ -9,6 +9,7 @@ User.delete_all
 Business.delete_all
 Category.delete_all
 Keyword.delete_all
+Review.delete_all
 
 u1 = User.create(fname:'Demo',lname:'User',zipCode:99999,email:'DemoUser@demo.com', password:'demouser')
 

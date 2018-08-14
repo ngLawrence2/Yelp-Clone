@@ -1,11 +1,11 @@
 import React from 'react';
 
-const FilterBar = () => {
+const FilterBar = (props) => {
 
   return (
     <div>
       <div className="PriceFilter">
-        <button>$</button>
+        <button onClick={props.fetchBusinesses}>$</button>
         <button>$$</button>
         <button>$$$</button>
         <button>$$$$</button>

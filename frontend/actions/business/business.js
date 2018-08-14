@@ -19,8 +19,8 @@ export const receiveBusiness = payload => {
   }
 }
 
-export const fetchBusinesses = () => dispatch => {
- return BusinessApiUtil.fetchAllBusinesses().then(businesses=>dispatch(receiveAllBusinesses(businesses)))
+export const fetchBusinesses = (keyword) => dispatch => {
+ return BusinessApiUtil.fetchAllBusinesses(keyword).then(businesses=>dispatch(receiveAllBusinesses(businesses)))
 }
 
 export const fetchBusiness = id => dispatch => {

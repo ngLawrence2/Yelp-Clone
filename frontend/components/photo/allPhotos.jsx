@@ -18,9 +18,9 @@ class AddPhoto extends React.Component {
     if(!this.props.business) {
       return null;
     }
-    debugger;
+
       const photoKeys = Object.keys(this.props.photos);
-    console.log(this.state);
+
     return (
       <div>
         <div className="topNavBar">
