@@ -1,13 +1,16 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
 
+
 class SearchNavBar extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      find: '',
-      near:''
+      find: this.props.filters.find,
+      near:this.props.filters.near
     };
+    this.handleSubmit=this.handleSubmit.bind(this);
+
   }
 
   displaySession() {
@@ -18,27 +21,46 @@ class SearchNavBar extends React.Component {
     }
   }
 
-  render() {
 
+  handleUpdate(field) {
+      return e => this.setState({[field]:e.target.value})
+  }
+
+  handleSubmit(e) {
+    e.preventDefault();
+    const filter = {
+      near: this.state.near,
+      find: this.state.find
+    };
+    this.props.saveFilter(filter);
+    this.props.history.push({
+      pathname: '/businesses',
+      search: `find=${this.state.find}&near=${this.state.near}`
+    });
+    this.props.fetchBusinesses(filter);
+  }
+
+  render() {
     return (
       <div className="header">
             <div className="searchBarNav">
               <div className="searchLogo">
                 <Link to = "/"><img src = {window.images.logo} /></Link>
               </div>
-
-              <div className="searchBar">
-                <span>
-                  <span className="catergory">Find</span>
-                  <input type="text" placeholder="burgers, barbers ,spas, handymen..."/>
-                </span>
-                <span>
-                  <span className="catergory">Near</span>
-                  <input type="text" placeholder="San Francisco" />
-                </span>
-                <button type="button"><img src = {window.images.search} /></button>
-              </div>
-
+              <form>
+                <div className="searchBar">
+                  <span>
+                    <span className="catergory">Find</span>
+                      <input type="text"
+                        onChange={this.handleUpdate('find')} placeholder="burgers, barbers ,spas, handymen..." value={this.state.find}/>
+                  </span>
+                  <span>
+                    <span className="catergory">Near</span>
+                  <input type="text" onChange={this.handleUpdate('near')} placeholder="San Francisco" value={this.state.near} />
+                  </span>
+                <button type="button" onClick={this.handleSubmit}><Link to = "/businesses"><img src = {window.images.search} /></Link></button>
+                </div>
+            </form>
               <div className="signUpButton">
                 <Link to ="/signUp">Sign Up</Link>
               </div>

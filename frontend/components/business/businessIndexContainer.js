@@ -1,12 +1,13 @@
 import {connect} from 'react-redux';
-import {fetchBusinesses} from '../../actions/business/business';
+import {fetchBusinesses,saveFilter} from '../../actions/business/business';
 import BusinessIndex from './businessIndex';
 import {filterByPrice} from '../../reducers/selectors';
-import {saveFilter} from '../../actions/business/business';
+
 
 const mapStateToProps = state => {
   return {
-    businesses: state.entities.businesses
+    businesses: state.entities.businesses,
+    filters: state.entities.filters
   }
 }
 

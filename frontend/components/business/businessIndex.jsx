@@ -4,34 +4,29 @@ import FilterBar from '../filter/FilterBar';
 import SearchItem from './searchItem';
 import BusinessContainer from './businessContainer';
 import MapBusiness from './map';
+import SearchNavBarContainer from '../nav_bar/search_nav_bar_container';
 
 class BusinessIndex extends React.Component {
   constructor(props) {
     super(props);
-    this.getSearchFilters=this.getSearchFilters.bind(this);
   }
 
   componentDidMount() {
+
     const search = {
-      near:'',
-      find:''
+      near:this.props.filters.near,
+      find:this.props.filters.find
     };
+
     this.props.fetchBusinesses(search);
-  }
-
-  getSearchFilters(find,near) {
-    this.props.saveFilter(find,near);
-  }
-
-  componentWillUnmount() {
 
   }
+
 
   render() {
     if(!this.props.businesses) {
       return null;
     }
-
     const displayAllBusiness = Object.keys(this.props.businesses).map(businessId => {
       return (
         <div key = {businessId}>
@@ -43,7 +38,7 @@ class BusinessIndex extends React.Component {
     return (
       <div>
         <div>
-          <SearchNavBar saveFilter = {this.getSearchFilters} />
+          <SearchNavBarContainer find={this.props.filters.find} near={this.props.filters.near}  />
         </div>
 
         <div className="filterBar">

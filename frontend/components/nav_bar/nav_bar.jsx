@@ -57,10 +57,12 @@ class NavBar extends React.Component {
       find:this.state.find,
       near: this.state.near
     };
-
-    this.props.fetchBusinesses(search).then((search) => {
-      console.warn(search);
-      this.props.history.push("/businesses");
+    this.props.saveFilter(search);
+    this.props.fetchBusinesses(search).then((res) => {
+      this.props.history.push({
+        pathname:"/businesses",
+        search: `find=${search.find}&near=${search.near}`
+      });
     });
   }
 

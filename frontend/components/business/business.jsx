@@ -8,6 +8,7 @@ import MapBusiness from './map';
 import SideBarInfo from './sideBarInfo';
 import BusinessPhotos from './photos';
 import {Link} from 'react-router-dom';
+import SearchNavBarContainer from '../nav_bar/search_nav_bar_container';
 
 class Business extends React.Component {
   constructor(props) {
@@ -37,7 +38,7 @@ class Business extends React.Component {
   return (
     <div className="businessShow">
       <div className="topNavBar">
-      <SearchNavBar/>
+      <SearchNavBarContainer find={this.props.filters.find} near={this.props.filters.near}/>
       </div>
       <div className="businessMapPhotoContainer">
         <div className="businessInformation">
@@ -77,7 +78,6 @@ class Business extends React.Component {
       <div className="reviewAndSideBarContainer" >
         <div className="reviewContainer">
             ReviewContainer Here
-
         </div>
 
         <div className="sideBar">

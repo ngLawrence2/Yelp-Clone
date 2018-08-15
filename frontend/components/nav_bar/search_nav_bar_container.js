@@ -1,11 +1,20 @@
 import {connect} from 'react-redux';
+import SearchNavBar from './search_nav_bar';
+import { withRouter } from 'react-router';
+import {saveFilter,fetchBusinesses} from '../../actions/business/business';
 
+const mapStateToProps = (state,ownProps) => {
 
-const mapStateToProps = (state) => {
-
+  return {
+    filters: state.entities.filters,
+    id: ownProps.match.params.business_id
+  }
 }
 
 const mapDispatchToProps = dispatch => {
-
+  return {
+    fetchBusinesses: (filter) => dispatch(fetchBusinesses(filter)),
+    saveFilter: (filter) => dispatch(saveFilter(filter))
+  }
 }
-export default connect(mapStateToProps,mapDispatchToProps)(SearchNavBar);
+export default withRouter(connect(mapStateToProps,mapDispatchToProps)(SearchNavBar));

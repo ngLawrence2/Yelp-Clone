@@ -10,9 +10,6 @@ import AddPhotoContainer from './photo/addPhotoContainer';
 import AllPhotoContainer from './photo/allPhotoContainer';
 import BusinessIndexContainer from './business/businessIndexContainer';
 const App = () => (
-
-
-
     <Switch>
      <AuthRoute exact path="/signUp" component={SignUpContainer} />
      <AuthRoute exact path = "/login" component={LoginFormContainer}/>

@@ -3,7 +3,7 @@ class Api::BusinessesController < ApplicationController
 
   def index
     if (params[:search][:find].length>0 || params[:search][:near].length>0)
-      @businesses = Business.includes(:keywords).where(keywords: {name: params[:search][:find]})
+        @businesses = Business.includes(:keywords).where(keywords: {name: params[:search][:find]})
     else
       @businesses = Business.all
     end
