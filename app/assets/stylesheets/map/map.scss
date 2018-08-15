@@ -28,3 +28,15 @@
     }
   }
 }
+
+.mapRes {
+  position:absolute;
+  right: 120px;
+  width:30%;
+  height:200px;
+  float:left;
+  .map {
+    height:300px;
+    width:300px;
+  }
+}

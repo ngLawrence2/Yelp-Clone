@@ -6,7 +6,8 @@ const mapStateToProps = (state,ownProps) => {
 
   return {
       business: state.entities.businesses[ownProps.match.params.business_id],
-      photos: state.entities.photos
+      photos: state.entities.photos,
+      filters: state.entities.filters
   }
 }
 

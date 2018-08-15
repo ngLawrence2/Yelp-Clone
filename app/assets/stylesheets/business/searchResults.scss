@@ -1,10 +1,16 @@
 .businessResults {
-  width:930px;
+  width:1000px;
   margin: auto;
+  display: flex;
+
+  .searchRes {
+    width:70%;
+  }
+
 }
 
 .searchResultContainer {
-
+    width:100%;
   .searchResultInfo {
     width:100%;
     padding:10px;
@@ -33,7 +39,7 @@
 
   border-top:1px solid #e6e6e6;
   border-bottom:1px solid #e6e6e6;
-  width:70%;
+
   .searchResultInfo {
     display:flex;
       justify-content: space-between;

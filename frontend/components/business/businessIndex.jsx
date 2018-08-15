@@ -17,10 +17,9 @@ class BusinessIndex extends React.Component {
       near:this.props.filters.near,
       find:this.props.filters.find
     };
-
     this.props.fetchBusinesses(search);
-
   }
+
 
 
   render() {
@@ -29,9 +28,9 @@ class BusinessIndex extends React.Component {
     }
     const displayAllBusiness = Object.keys(this.props.businesses).map(businessId => {
       return (
-        <div key = {businessId}>
-          <SearchItem business = {this.props.businesses[businessId]} />
-        </div>
+
+          <SearchItem key={businessId} business = {this.props.businesses[businessId]} />
+
       );
     });
 
@@ -52,7 +51,7 @@ class BusinessIndex extends React.Component {
           </div>
 
           <div className="mapRes">
-            <div className="map" ref="map"/>
+            <MapBusiness loc={{lat: 37.784558, lng: -122.398564}}/>
           </div>
 
         </div>

@@ -4,7 +4,6 @@ import { withRouter } from 'react-router';
 import {saveFilter,fetchBusinesses} from '../../actions/business/business';
 
 const mapStateToProps = (state,ownProps) => {
-
   return {
     filters: state.entities.filters,
     id: ownProps.match.params.business_id

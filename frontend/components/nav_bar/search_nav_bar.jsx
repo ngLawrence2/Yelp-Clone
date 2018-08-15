@@ -5,9 +5,18 @@ import {Link} from 'react-router-dom';
 class SearchNavBar extends React.Component {
   constructor(props) {
     super(props);
+    let initialFind = this.props.filters.find;
+    let initialNear = this.props.filters.near;
+    if(this.props.filters.find===undefined) {
+      initialFind="";
+    }
+    if(this.props.filters.near===undefined) {
+      initialNear="";
+    }
+
     this.state = {
-      find: this.props.filters.find,
-      near:this.props.filters.near
+      find: initialFind,
+      near: initialNear
     };
     this.handleSubmit=this.handleSubmit.bind(this);
 
@@ -25,6 +34,8 @@ class SearchNavBar extends React.Component {
   handleUpdate(field) {
       return e => this.setState({[field]:e.target.value})
   }
+
+
 
   handleSubmit(e) {
     e.preventDefault();

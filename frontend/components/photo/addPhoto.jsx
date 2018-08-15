@@ -46,7 +46,7 @@ class AddPhoto extends React.Component {
     return (
       <div>
         <div className="topNavBar">
-          <SearchNavBar />
+          <SearchNavBar filters={this.props.filters} />
         </div>
         <div className= "addPhotoContainer">
           <div className= "AddPhotoDetails">
