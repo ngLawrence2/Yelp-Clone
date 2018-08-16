@@ -28,8 +28,30 @@ class NavBar extends React.Component {
           lng: results[0].geometry.location.lng(),
         };
         that.props.getLatLng(location);
+        const search = {
+          find:that.state.find,
+          near: that.state.near
+        };
+        that.props.saveFilter(search);
+        that.props.fetchBusinesses(search).then((res) => {
+          that.props.history.push({
+            pathname:"/businesses",
+            search: `find=${search.find}&near=${search.near}+lat=${location.lat}+lng=${location.lng}`
+          });
+        });
+
       } else {
+        const search = {
+          find:that.state.find,
+          near: that.state.near
+        };
         that.props.getLatLng({lat:37.79402839999999,lng:-122.4028156});   //default for San Francisco
+        that.props.fetchBusinesses(search).then((res) => {
+          that.props.history.push({
+            pathname:"/businesses",
+            search: `find=${search.find}&near=${search.near}+lat=37.79402839999999+lng=-122.4028156`
+          });
+        });
       }
     });
   }
@@ -70,20 +92,22 @@ class NavBar extends React.Component {
   }
 
   search(e) {
-    this.getLocation();
+
 
     e.preventDefault();
-    const search = {
-      find:this.state.find,
-      near: this.state.near
-    };
-    this.props.saveFilter(search);
-    this.props.fetchBusinesses(search).then((res) => {
-      this.props.history.push({
-        pathname:"/businesses",
-        search: `find=${search.find}&near=${search.near}`
-      });
-    });
+    // const search = {
+    //   find:that.state.find,
+    //   near: that.state.near
+    // };
+    this.getLocation();
+
+    // this.props.saveFilter(search);
+    // this.props.fetchBusinesses(search).then((res) => {
+    //   this.props.history.push({
+    //     pathname:"/businesses",
+    //     search: `find=${search.find}&near=${search.near}`
+    //   });
+    // });
   }
 
 
@@ -130,7 +154,7 @@ class NavBar extends React.Component {
         </div>
       </div>
     );
-  }debugger;
+  }
 
   render() {
     return(

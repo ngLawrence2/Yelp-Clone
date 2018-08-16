@@ -35,27 +35,23 @@ class SearchNavBar extends React.Component {
       return e => this.setState({[field]:e.target.value})
   }
 
-  componentWillReceiveProps(nextProps) {
-
-  }
-
-
   handleSubmit(e) {
     e.preventDefault();
-    const filter = {
-      near: this.state.near,
-      find: this.state.find
-    };
-    this.props.saveFilter(filter);
-    this.props.history.push({
-      pathname: '/businesses',
-      search: `find=${this.state.find}&near=${this.state.near}`
-    });
+    // const filter = {
+    //   near: this.state.near,
+    //   find: this.state.find
+    // };
+    // this.props.saveFilter(filter);
+    // this.props.history.push({
+    //   pathname: '/businesses',
+    //   search: `find=${this.state.find}&near=${this.state.near}`
+    // });
     this.getLocation();
-    this.props.fetchBusinesses(filter);
+    // this.props.fetchBusinesses(filter);
   }
 
   getLocation() {
+    let that = this;
     const geocoder = new google.maps.Geocoder;
     geocoder.geocode( { 'address': this.state.near}, (results, status) => {
       if (status == 'OK') {
@@ -63,10 +59,31 @@ class SearchNavBar extends React.Component {
           lat:results[0].geometry.location.lat(),
           lng: results[0].geometry.location.lng(),
         };
-        this.props.getLatLng(location);
+        that.props.getLatLng(location);
+        const search = {
+          find:that.state.find,
+          near: that.state.near
+        };
+        that.props.saveFilter(search);
+        that.props.fetchBusinesses(search).then((res) => {
+          that.props.history.push({
+            pathname:"/businesses",
+            search: `find=${search.find}&near=${search.near}+lat=${location.lat}+lng=${location.lng}`
+          });
+        });
+
       } else {
-        
-        this.props.getLatLng({lat:37.79402839999999,lng:-122.4028156});   //default for San Francisco
+        const search = {
+          find:that.state.find,
+          near: that.state.near
+        };
+        that.props.getLatLng({lat:37.79402839999999,lng:-122.4028156});   //default for San Francisco
+        that.props.fetchBusinesses(search).then((res) => {
+          that.props.history.push({
+            pathname:"/businesses",
+            search: `find=${search.find}&near=${search.near}+lat=37.79402839999999+lng=-122.4028156`
+          });
+        });
       }
     });
   }

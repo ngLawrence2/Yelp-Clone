@@ -7,11 +7,12 @@ class Api::BusinessesController < ApplicationController
           if(params[:search][:find].length>0)
             @businesses = Business.joins(:keywords).includes(:keywords).where("keywords.name ILIKE ? OR businesses.name ILIKE ?", "%#{params[:search][:find]}%" ,"%#{params[:search][:find]}%")
           end
-          if(bounds)
-            @businesses = Business.in_bounds(bounds)
-          end
+          # if(bounds)
+          #   @businesses = Business.in_bounds(bounds)
+          # end
       end
       @businesses
+      #change active storage query
     render "api/businesses/index"
   end
 

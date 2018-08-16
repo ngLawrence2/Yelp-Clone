@@ -14,17 +14,22 @@ class BusinessIndex extends React.Component {
   componentDidMount() {
     const str = this.props.history.location.search
     const search = {
-      near:str.slice(str.lastIndexOf("=")+1),
+      near: str.slice(str.indexOf('near=')+5,str.indexOf('+lat')),
       find:str.slice(str.indexOf('=')+1, str.indexOf('&'))
     };
     if (search.near.length===0) {
       search.near = "san francisco";
     }
+
+    const prevLoc = {
+      lat: str.slice(str.indexOf('lat=')+4, str.indexOf('+lng')),
+      lng:str.slice(str.lastIndexOf("=")+1)
+    };
     // const search = {
     //   near:this.props.filters.near,
     //   find:this.props.filters.find,
     // };
-    debugger;
+    this.props.saveLoc(prevLoc);
     this.props.saveFilter(search);
     this.props.fetchBusinesses(search);
 
@@ -34,13 +39,19 @@ class BusinessIndex extends React.Component {
     if(!this.props.businesses) {
       return null;
     }
+
+
     const displayAllBusiness = Object.keys(this.props.businesses).map(businessId => {
       return (
           <SearchItem key={businessId} business = {this.props.businesses[businessId]} />
       );
     });
 
-    //refreshing the page makes loc undefined so no map is printed
+
+
+    debugger;
+    //goes to map before grabbing data
+    
     return (
       <div>
         <div>

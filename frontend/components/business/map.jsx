@@ -8,12 +8,12 @@ class MapBusiness extends React.Component {
 
 
   componentDidMount() {
-
+    debugger;
     const map = ReactDOM.findDOMNode(this.refs.map);
     const latlng = new google.maps.LatLng(this.props.loc);
     const options = {
       center: latlng,
-      zoom: 13,
+      zoom: 11,
     }
     this.map = new google.maps.Map(map, options);
 
