@@ -19,6 +19,7 @@ export const receiveAllBusinesses = businesses => {
 }
 
 export const receiveBusiness = payload => {
+
   return {
     type:RECEIVE_BUSINESS,
     payload

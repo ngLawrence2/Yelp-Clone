@@ -6,6 +6,8 @@ import {filterResults} from '../../reducers/selectors';
 
 
 const mapStateToProps = (state,ownProps) => {
+  const results = filterResults(state.entities.businesses, "price", '$$');
+  debugger;
   return {
     businesses: state.entities.businesses,
     filters: state.entities.filters,

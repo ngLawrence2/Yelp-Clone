@@ -9,6 +9,7 @@ import BusinessContainer from './business/businessContainer';
 import AddPhotoContainer from './photo/addPhotoContainer';
 import AllPhotoContainer from './photo/allPhotoContainer';
 import BusinessIndexContainer from './business/businessIndexContainer';
+import ReviewContainer from './review/reviewContainer';
 const App = () => (
     <Switch>
      <AuthRoute exact path="/signUp" component={SignUpContainer} />
@@ -16,6 +17,7 @@ const App = () => (
      <ProtectedRoute path = "/business/:business_id/upload" component={AddPhotoContainer} />
      <Route path = "/businesses/:business_id" component={BusinessContainer} />
      <Route path = "/business/:business_id/photos" component={AllPhotoContainer} />
+     <Route path = "/business/:business_id/writeReview" component={ReviewContainer} />
      <Route path = "/businesses" component={BusinessIndexContainer}/>
      <Route exact path = "/" component={SplashPage}/>
      <Redirect to = "/" />

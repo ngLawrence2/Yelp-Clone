@@ -8,6 +8,7 @@ const ReviewReducer = (state={},action) => {
     if(!action.payload.reviews) {
       return {};
     }
+
       return action.payload.reviews
     default:
       return state;

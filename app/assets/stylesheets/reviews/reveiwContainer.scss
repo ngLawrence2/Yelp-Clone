@@ -1,0 +1,25 @@
+.reviewAndSideBarContainer {
+  display: flex;
+  width:930px;
+  margin:auto;
+}
+
+.reviewContainer {
+  width:70%;
+  margin: 15px;
+
+
+  .reviewItemContainer {
+    display: flex;
+    margin-top: 15px;
+    .reviewAuthor {
+      width:20%;
+    }
+    .reviewRatingBodyContainer {
+      display: flex;
+      flex-direction: column;
+
+    }
+  }
+
+}

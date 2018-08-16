@@ -11,7 +11,7 @@ class BusinessIndex extends React.Component {
     super(props);
   }
 
-  componentDidMount() {
+  componentWillMount() {
     const str = this.props.history.location.search
     const search = {
       near: str.slice(str.indexOf('near=')+5,str.indexOf('+lat')),
@@ -25,10 +25,8 @@ class BusinessIndex extends React.Component {
       lat: str.slice(str.indexOf('lat=')+4, str.indexOf('+lng')),
       lng:str.slice(str.lastIndexOf("=")+1)
     };
-    // const search = {
-    //   near:this.props.filters.near,
-    //   find:this.props.filters.find,
-    // };
+
+
     this.props.saveLoc(prevLoc);
     this.props.saveFilter(search);
     this.props.fetchBusinesses(search);
@@ -49,9 +47,6 @@ class BusinessIndex extends React.Component {
 
 
 
-    debugger;
-    //goes to map before grabbing data
-    
     return (
       <div>
         <div>

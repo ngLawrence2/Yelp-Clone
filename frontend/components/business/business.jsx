@@ -9,6 +9,7 @@ import SideBarInfo from './sideBarInfo';
 import BusinessPhotos from './photos';
 import {Link} from 'react-router-dom';
 import SearchNavBarContainer from '../nav_bar/search_nav_bar_container';
+import ReviewItem from '../review/reviewItem';
 
 class Business extends React.Component {
   constructor(props) {
@@ -32,9 +33,12 @@ class Business extends React.Component {
       return null;
     }
 
-
     const photoKeys = Object.keys(this.props.photos).slice(0,3);
-
+    const displayReviews = Object.keys(this.props.reviews).map(reviewId => {
+      return (
+        <div key={reviewId}><ReviewItem review ={this.props.reviews[reviewId]} author={this.props.users[this.props.reviews[reviewId].user_id]}/></div>
+      );
+    });
   return (
     <div className="businessShow">
       <div className="topNavBar">
@@ -77,7 +81,8 @@ class Business extends React.Component {
 
       <div className="reviewAndSideBarContainer" >
         <div className="reviewContainer">
-            ReviewContainer Here
+          <div>Your Review Here</div>
+          <div>{displayReviews}</div>
         </div>
 
         <div className="sideBar">

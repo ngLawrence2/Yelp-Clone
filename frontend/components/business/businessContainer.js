@@ -9,7 +9,9 @@ const mapStateToProps = (state,ownProps) => {
     business: state.entities.businesses[ownProps.match.params.business_id],
     photos: state.entities.photos,
     keywords: state.entities.keywords,
-    filters: state.entities.filters
+    filters: state.entities.filters,
+    reviews: state.entities.reviews,
+    users: state.entities.users
   }
 }
 
