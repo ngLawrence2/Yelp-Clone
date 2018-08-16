@@ -19,12 +19,13 @@ export const receiveAllBusinesses = businesses => {
 }
 
 export const receiveBusiness = payload => {
-
   return {
     type:RECEIVE_BUSINESS,
     payload
   }
 }
+
+
 
 export const fetchBusinesses = (keyword) => dispatch => {
  return BusinessApiUtil.fetchAllBusinesses(keyword).then(businesses=>dispatch(receiveAllBusinesses(businesses)))
@@ -32,4 +33,8 @@ export const fetchBusinesses = (keyword) => dispatch => {
 
 export const fetchBusiness = id => dispatch => {
   return BusinessApiUtil.fetchBusiness(id).then(payload => dispatch(receiveBusiness(payload)))
+}
+
+export const updateLocation = (bounds) => dispatch => {
+  return BusinessApiUtil.fetchAllBusinesses(bounds).then(results => dispatch(receiveAllBusinesses(results)))
 }

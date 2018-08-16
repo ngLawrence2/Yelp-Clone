@@ -13,12 +13,12 @@ class SearchNavBar extends React.Component {
     if(this.props.filters.near===undefined) {
       initialNear="";
     }
-
     this.state = {
       find: initialFind,
       near: initialNear
     };
     this.handleSubmit=this.handleSubmit.bind(this);
+    this.getLocation=this.getLocation.bind(this);
 
   }
 
@@ -35,6 +35,9 @@ class SearchNavBar extends React.Component {
       return e => this.setState({[field]:e.target.value})
   }
 
+  componentWillReceiveProps(nextProps) {
+
+  }
 
 
   handleSubmit(e) {
@@ -48,10 +51,28 @@ class SearchNavBar extends React.Component {
       pathname: '/businesses',
       search: `find=${this.state.find}&near=${this.state.near}`
     });
+    this.getLocation();
     this.props.fetchBusinesses(filter);
   }
 
+  getLocation() {
+    const geocoder = new google.maps.Geocoder;
+    geocoder.geocode( { 'address': this.state.near}, (results, status) => {
+      if (status == 'OK') {
+        const location = {
+          lat:results[0].geometry.location.lat(),
+          lng: results[0].geometry.location.lng(),
+        };
+        this.props.getLatLng(location);
+      } else {
+        
+        this.props.getLatLng({lat:37.79402839999999,lng:-122.4028156});   //default for San Francisco
+      }
+    });
+  }
+
   render() {
+
     return (
       <div className="header">
             <div className="searchBarNav">

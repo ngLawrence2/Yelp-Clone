@@ -1,11 +1,13 @@
-export const fetchAllBusinesses = ({near, find}) => {
+export const fetchAllBusinesses = ({near, find, bounds}) => {
+
   return $.ajax({
     method:'GET',
     url: '/api/businesses',
     data: {
       search: {
         near,
-        find
+        find,
+        bounds
       }
     }
   });

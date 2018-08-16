@@ -26,7 +26,6 @@ class RatingStars extends React.Component {
       width: '132px',
       height: '22px'
     };
-    console.log(position);
     return (
       <div className="currentRating" style={position}></div>
     );

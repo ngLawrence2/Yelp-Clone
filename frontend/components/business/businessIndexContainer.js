@@ -1,20 +1,24 @@
 import {connect} from 'react-redux';
-import {fetchBusinesses,saveFilter} from '../../actions/business/business';
+import {fetchBusinesses,saveFilter,updateLocation} from '../../actions/business/business';
 import BusinessIndex from './businessIndex';
 import {filterResults} from '../../reducers/selectors';
 
 
-const mapStateToProps = state => {
+const mapStateToProps = (state,ownProps) => {
   return {
     businesses: state.entities.businesses,
-    filters: state.entities.filters
+    filters: state.entities.filters,
+    loc: {
+      lat: state.entities.ui.lat,
+      lng: state.entities.ui.lng
+      }
   }
 }
 
 const mapDispatchToProps = dispatch => {
   return {
     fetchBusinesses: (filter)=> dispatch(fetchBusinesses(filter)),
-    filterResults: (data, filterData, filterValue) => dispatch(filterResults(data,filterData,filterValue)),
+    updateLocation: (bounds) => dispatch(updateLocation(bounds)),
     saveFilter: (filter)=> dispatch(saveFilter(filter))
   }
 }

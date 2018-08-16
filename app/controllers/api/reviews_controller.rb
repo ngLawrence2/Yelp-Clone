@@ -2,6 +2,8 @@ class Api::ReviewsController < ApplicationController
 
   def create
     @review=Review.new(review_params)
+    @review.user_id = current_user.id
+    debugger;
     if @review.save
     else
       render json: @review.errors.full_messages, status: 404
@@ -19,7 +21,7 @@ class Api::ReviewsController < ApplicationController
   private
 
   def review_params
-    params.require(:review).permit(:body,:rating)
+    params.require(:review).permit(:body,:rating,:business_id)
   end
 
 end

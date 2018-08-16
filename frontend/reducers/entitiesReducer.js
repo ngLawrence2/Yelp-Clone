@@ -5,6 +5,7 @@ import ReviewReducer from './reviews';
 import UserReducer from './users';
 import KeywordReducer from './keywords';
 import FilterReducer from './filter';
+import UIReducer from './uireducer';
 
 export default combineReducers({
   businesses: BusinessReducer,
@@ -12,5 +13,6 @@ export default combineReducers({
   reviews: ReviewReducer,
   keywords: KeywordReducer,
   users: UserReducer,
-  filters: FilterReducer
+  filters: FilterReducer,
+  ui: UIReducer
 });

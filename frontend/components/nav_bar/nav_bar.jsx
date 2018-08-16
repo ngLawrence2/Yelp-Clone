@@ -14,7 +14,26 @@ class NavBar extends React.Component {
       near: ''
     };
     this.search=this.search.bind(this);
+    this.getLocation=this.getLocation.bind(this);
   }
+
+  getLocation() {
+    let that = this;
+
+    const geocoder = new google.maps.Geocoder;
+    geocoder.geocode( { 'address': this.state.near}, (results, status) => {
+      if (status == 'OK') {
+        const location = {
+          lat:results[0].geometry.location.lat(),
+          lng: results[0].geometry.location.lng(),
+        };
+        that.props.getLatLng(location);
+      } else {
+        that.props.getLatLng({lat:37.79402839999999,lng:-122.4028156});   //default for San Francisco
+      }
+    });
+  }
+
 
 
   handleUpdate(field) {
@@ -51,6 +70,7 @@ class NavBar extends React.Component {
   }
 
   search(e) {
+    this.getLocation();
 
     e.preventDefault();
     const search = {
@@ -58,8 +78,6 @@ class NavBar extends React.Component {
       near: this.state.near
     };
     this.props.saveFilter(search);
-
-
     this.props.fetchBusinesses(search).then((res) => {
       this.props.history.push({
         pathname:"/businesses",
@@ -73,7 +91,6 @@ class NavBar extends React.Component {
   navBar() {
     return (
       <div>
-
         <div className="navBar">
           <div className="allLinks">
             <h2>Write a Reiview</h2>

@@ -3,19 +3,15 @@ class Api::BusinessesController < ApplicationController
 
   def index
       @businesses = Business.all
-    if (!params[:search].nil? && (params[:search][:find].length>0 || params[:search][:near].length>0))
-        # @businesses = Business.includes(:keywords).where(keywords: {name: params[:search][:find]})
-        if(params[:search][:find].length>0)
-          @businesses = Business.joins(:keywords).includes(:keywords).where("keywords.name ILIKE ? OR businesses.name ILIKE ?", "%#{params[:search][:find]}%" ,"%#{params[:search][:find]}%")
-        end
-        if(params[:search][:near].length>0)
-          
-        end
-        puts bounds
-
-    else
+      if (!params[:search].nil? && (params[:search][:find].length>0 || params[:search][:near].length>0))
+          if(params[:search][:find].length>0)
+            @businesses = Business.joins(:keywords).includes(:keywords).where("keywords.name ILIKE ? OR businesses.name ILIKE ?", "%#{params[:search][:find]}%" ,"%#{params[:search][:find]}%")
+          end
+          if(bounds)
+            @businesses = Business.in_bounds(bounds)
+          end
+      end
       @businesses
-    end
     render "api/businesses/index"
   end
 
@@ -37,7 +33,7 @@ class Api::BusinessesController < ApplicationController
     end
 
     def bounds
-      params[:bounds]
+      params[:search]["bounds"]
     end
 
 
