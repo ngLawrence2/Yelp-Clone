@@ -23,3 +23,57 @@
   }
 
 }
+
+
+.ReviewForm {
+  .reviewBody {
+      width:600px;
+      height:400px;
+      resize:none;
+  }
+}
+
+
+.blankStar {
+  background-image: asset_url('ratings.png');
+  background-position: -106px 0px;
+  width: 25px;
+  height: 23px;
+}
+
+.reviewStars1 {
+  background-image: asset_url('ratings.png');
+  background-position: 0px -24px;
+  width: 22px;
+  height: 23px;
+}
+.reviewStars2 {
+  background-image: asset_url('ratings.png');
+  background-position: 0px -72px;
+  width: 22px;
+  height: 23px;
+}
+.reviewStars3 {
+  background-image: asset_url('ratings.png');
+  background-position: -1px -120px;
+  width: 22px;
+  height: 23px;
+}
+
+.reviewStars4 {
+  background-image: asset_url('ratings.png');
+  background-position: -1px -168px;
+  width: 22px;
+  height: 23px;
+}
+
+.reviewStars5 {
+  background-image: asset_url('ratings.png');
+  background-position: -1px -217px;
+  width: 24px;
+  height: 22px;
+}
+
+.userSelectedStar {
+  display: flex;
+}

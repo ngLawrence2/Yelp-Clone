@@ -8,6 +8,7 @@ class Api::BusinessesController < ApplicationController
             @businesses = Business.joins(:keywords).includes(:keywords).where("keywords.name ILIKE ? OR businesses.name ILIKE ?", "%#{params[:search][:find]}%" ,"%#{params[:search][:find]}%")
           end
           # if(bounds)
+          #
           #   @businesses = Business.in_bounds(bounds)
           # end
       end
