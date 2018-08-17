@@ -29,8 +29,13 @@ class SearchItem extends React.Component {
     if(!this.props.business.businessPhoto) {
       return null;
     }
-    this.getAltImage();
+    const displaySetOfKeywords = this.props.business.keywords.slice(0,3).map((k,idx) => {
+      return (
+        <span className="keywordCategory" key ={idx}>{k}</span>
+      );
+    })
 
+    this.getAltImage();
     return (
       <div className="searchResultContainer">
           <div className="searchResBusinessPhoto"><img src ={this.getAltImage()}/></div>
@@ -40,7 +45,7 @@ class SearchItem extends React.Component {
             <div className="searchResultBusinessInfo">
                <div><Link to = {`/businesses/${this.props.business.id}`}>{this.props.business.name}</Link></div>
                <div><RatingStars rating = {this.props.business.rating} /></div>
-               <div>{this.props.business.price} <span>Category</span></div>
+               <div>{this.props.business.price} <span>{displaySetOfKeywords}</span></div>
 
             </div>
 

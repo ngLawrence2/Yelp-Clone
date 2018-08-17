@@ -36,6 +36,7 @@ export const fetchBusiness = id => dispatch => {
   return BusinessApiUtil.fetchBusiness(id).then(payload => dispatch(receiveBusiness(payload)))
 }
 
-export const updateLocation = (bounds) => dispatch => {
-  return BusinessApiUtil.fetchAllBusinesses(bounds).then(results => dispatch(receiveAllBusinesses(results)))
+export const updateLocation = (filterInfo) => dispatch => {
+
+  return BusinessApiUtil.fetchAllBusinesses(filterInfo).then(results => dispatch(receiveAllBusinesses(results)))
 }

@@ -41,12 +41,13 @@ class MapBusiness extends React.Component {
           southWest: { lat: south, lng: west }
         };
         //this is referring to google maps so this.props.near/find/updateResults is empty
+        
         console.log(that.props.near);
         console.log(that.props.find);
         const values = {
           bounds: bounds,
-          near: nextProps.near,
-          find: nextProps.find
+          near: that.props.near,
+          find: that.props.find
         }
 
          that.props.updateResults(values);

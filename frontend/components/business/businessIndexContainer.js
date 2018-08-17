@@ -10,6 +10,7 @@ const mapStateToProps = (state,ownProps) => {
 
   return {
     businesses: state.entities.businesses,
+    filteredBusinesses: results,
     filters: state.entities.filters,
     loc: {
       lat: parseFloat(state.entities.ui.lat),

@@ -13,7 +13,7 @@ class CreateReviewForm extends React.Component {
   }
 
   handleSubmit(e) {
-    debugger;
+
     const reviewObj = {
       body:this.state.body,
       rating: this.state.rating,
