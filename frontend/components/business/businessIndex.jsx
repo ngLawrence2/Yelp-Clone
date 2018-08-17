@@ -10,8 +10,11 @@ class BusinessIndex extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      markerArray: []
+      markerArray: [],
+      filter:false
     };
+    this.filterPrice=this.filterPrice.bind(this);
+    this.filterHours=this.filterHours.bind(this);
   }
 
 
@@ -35,7 +38,15 @@ class BusinessIndex extends React.Component {
     this.props.saveLoc(prevLoc);
     this.props.saveFilter(search);
     this.props.fetchBusinesses(search);
+  }
 
+  filterPrice(val) {
+    // this.props.filterPrice(this.props.businesses,val);
+  }
+
+  filterHours() {
+
+    // this.props.filterHours(this.props.businesses);
   }
 
   render() {
@@ -55,7 +66,6 @@ class BusinessIndex extends React.Component {
       );
     });
 
-
     return (
       <div>
         <div>
@@ -63,7 +73,19 @@ class BusinessIndex extends React.Component {
         </div>
 
         <div className="filterBar">
-          <FilterBar filter={this.props.fetchBusinesses} />
+          <div className="filterBar">
+            <div className="filterButtonContainer">
+            <div className="PriceFilter">
+              <button onClick={(e)=>this.filterPrice("$")}>$</button>
+              <button onClick={e=>this.filterPrice("$$")}>$$</button>
+              <button onClick={e=>this.filterPrice("$$$")}>$$$</button>
+              <button onClick={e=>this.filterPrice("$$$$")}>$$$$</button>
+            </div>
+            <div className="OpenFilter">
+              <button onClick={e=>this.filterHours()}>Open Now</button>
+            </div>
+            </div>
+          </div>
         </div>
 
         <div className="businessResults">

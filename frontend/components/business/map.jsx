@@ -26,10 +26,7 @@ class MapBusiness extends React.Component {
   }
 
   updateMap(nextProps) {
-
     let centerOfMap;
-
-
     const map = ReactDOM.findDOMNode(this.refs.map);
     const latlng = new google.maps.LatLng(nextProps.loc);
     const options = {
@@ -37,7 +34,6 @@ class MapBusiness extends React.Component {
       zoom: 11,
     }
     this.map = new google.maps.Map(map, options);
-
       let marker;
     if(this.props.placeMarkers) {
         for(let i = 0 ; i < this.props.placeMarkers.length; i++) {

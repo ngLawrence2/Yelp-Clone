@@ -30,7 +30,7 @@ class AddPhoto extends React.Component {
         <div className="allPhotosHeader">
           Photos for {this.props.business.name}
           <div><Link to ={`/businesses/${this.props.business.id}`}>{this.props.business.name}</Link></div>
-          <div><RatingStars rating={this.props.business.rating}/></div>
+          <div><RatingStars rating={this.props.business.averageRating}/></div>
         </div>
 
         <div className="currentBusinessContainer">

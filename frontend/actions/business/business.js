@@ -12,6 +12,7 @@ export const saveFilter = filter => {
 }
 
 export const receiveAllBusinesses = businesses => {
+
   return {
       type:RECEIVE_ALL_BUSINESSES,
       businesses
@@ -19,7 +20,6 @@ export const receiveAllBusinesses = businesses => {
 }
 
 export const receiveBusiness = payload => {
-
   return {
     type:RECEIVE_BUSINESS,
     payload

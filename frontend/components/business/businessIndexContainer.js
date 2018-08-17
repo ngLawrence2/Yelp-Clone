@@ -1,16 +1,17 @@
 import {connect} from 'react-redux';
-import {fetchBusinesses,saveFilter,updateLocation} from '../../actions/business/business';
+import {fetchBusinesses,saveFilter,updateLocation,receiveAllBusinesses} from '../../actions/business/business';
 import BusinessIndex from './businessIndex';
 import {saveLoc} from '../../actions/ui/ui';
 import {filterPrice,filterOpen} from '../../reducers/selectors';
 
 
 const mapStateToProps = (state,ownProps) => {
-  const results = filterPrice(state.entities.businesses, '$$');
-  const hoursResults = filterOpen(state.entities.businesses);
+  const results = filterPrice(state.entities.businesses, '$');
+//  const hoursResults = filterOpen(state.entities.businesses);
+
   return {
     businesses: state.entities.businesses,
-    filteredBusinesses: results,
+    //filteredBusinesses: results,
     filters: state.entities.filters,
     loc: {
       // lat: parseFloat(state.entities.ui.lat),
@@ -26,7 +27,9 @@ const mapDispatchToProps = dispatch => {
     fetchBusinesses: (filter)=> dispatch(fetchBusinesses(filter)),
     updateLocation: (bounds) => dispatch(updateLocation(bounds)),
     saveFilter: (filter)=> dispatch(saveFilter(filter)),
-    saveLoc: (loc) => dispatch(saveLoc(loc))
+    saveLoc: (loc) => dispatch(saveLoc(loc)),
+    filterPrice: (businesses, filterData) => dispatch(receiveAllBusinesses(filterPrice(businesses,filterData))),
+    filterHours: (businesses) => dispatch(receiveAllBusinesses(filterOpen(businesses)))
   }
 }
 
