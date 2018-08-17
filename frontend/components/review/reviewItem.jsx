@@ -9,6 +9,7 @@ const ReviewItem = ({review,author}) => {
       <div className="reviewRatingBodyContainer">
         <div className="reviewItemRating"><RatingStars rating= {review.rating} /></div>
         <div className="reviewItemBody">{review.body}</div>
+        <div></div>
       </div>
     </div>
   );

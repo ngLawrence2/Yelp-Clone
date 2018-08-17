@@ -32,8 +32,8 @@ class AddPhoto extends React.Component {
 
       //add ajax call that updates the user
       //redirect
-
     })
+
   }
 
 

@@ -15,7 +15,7 @@ class BusinessInfo extends React.Component {
           <div className="businessShowContainer">
             <div className="businessTitleHeader">
               <h1>{this.props.business.name}</h1>
-                <RatingStars rating={this.props.business.rating}/>
+                <RatingStars rating={this.props.business.averageRating}/>
               <div>
                 <div className= "priceKeywordContainer">
                   {this.props.business.price} - {keyword.map( key => <div key={key}>{this.props.keywords[key].name}</div>)}

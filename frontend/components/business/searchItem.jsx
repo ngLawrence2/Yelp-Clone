@@ -36,6 +36,8 @@ class SearchItem extends React.Component {
     })
 
     this.getAltImage();
+    let averageRating = (this.props.business.averageRating * 2 ) / 2;
+
     return (
       <div className="searchResultContainer">
           <div className="searchResBusinessPhoto"><img src ={this.getAltImage()}/></div>
@@ -44,7 +46,7 @@ class SearchItem extends React.Component {
           <div className = "searchBusInfoContainer">
             <div className="searchResultBusinessInfo">
                <div><Link to = {`/businesses/${this.props.business.id}`}>{this.props.business.name}</Link></div>
-               <div><RatingStars rating = {this.props.business.rating} /></div>
+               <div><RatingStars rating = {averageRating} /></div>
                <div>{this.props.business.price} <span>{displaySetOfKeywords}</span></div>
 
             </div>

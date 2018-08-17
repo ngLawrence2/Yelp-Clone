@@ -89,14 +89,11 @@ class SearchNavBar extends React.Component {
   }
 
   render() {
-    const reviewLink = () => {
-      if(this.props.match.params.business_id) {
-        return `/business/${this.props.match.params.business_id}/writeReview`;
-      }else {
-        return "/";
-      }
+
+    let photoLink = "/";
+    if(this.props.id !== undefined) {
+      photoLink = `/business/${this.props.id}/writeReview`;
     }
-    debugger;
     return (
       <div className="header">
             <div className="searchBarNav">
@@ -128,7 +125,7 @@ class SearchNavBar extends React.Component {
                 <span><img src = {window.images.nightlife} />NightLife</span>
                 <span><img src = {window.images.homeServices} />Home Services</span>
                 <span><img src = {window.images.delivery} />Delivery</span>
-                <span><Link to ={reviewLink()} >Write a Review</Link></span>
+                <span><Link to ={photoLink} >Write a Review</Link></span>
                 <span>Talk</span>
                 <span>Events</span>
               </div>

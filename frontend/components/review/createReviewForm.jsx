@@ -1,4 +1,5 @@
 import React from 'react';
+import {Link} from 'react-router-dom';
 class CreateReviewForm extends React.Component {
   constructor(props) {
     super(props);
@@ -20,11 +21,7 @@ class CreateReviewForm extends React.Component {
       business_id: this.props.business_id
     };
 
-    this.props.createReview(reviewObj).then((res) => {
-      that.props.history.push({
-        pathname:`/business/${this.props.business_id}/writeReview`
-      });
-    });
+    this.props.createReview(reviewObj);
   }
 
   handleUpdate(field) {
@@ -82,7 +79,7 @@ class CreateReviewForm extends React.Component {
              <input type="radio" name="rating" value="5" defaultChecked={true}/>5
              </div>
             <textarea className="reviewBody" onChange={this.handleUpdate('body')} placeholder={formPlaceHolder}/>
-            <button onClick={this.handleSubmit}>Post Review!</button>
+            <button onClick={this.handleSubmit}><Link to = {`/businesses/${this.props.business_id}`}>Post Review!</Link></button>
           </form>
         </div>
 

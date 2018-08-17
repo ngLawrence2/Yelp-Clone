@@ -6,6 +6,7 @@ class RatingStars extends React.Component {
     this.getStars=this.getStars.bind(this);
   }
   getStars(rating) {
+    rating = Math.round(rating * 2 ) / 2;
     const ratingsPosition = [
       [0 , -217],
       [0, -195],
@@ -18,7 +19,11 @@ class RatingStars extends React.Component {
       [0,-27],
       [0,-1]
     ];
-    const resultPos = ratingsPosition.length-(rating*2);
+
+    let resultPos = ratingsPosition.length - (rating * 2);
+    if(resultPos>=10) {
+      resultPos--;
+    }
     const xPos = ratingsPosition[resultPos][0];
     const yPos = ratingsPosition[resultPos][1];
     let position = {
