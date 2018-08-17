@@ -53,7 +53,7 @@ class AddPhoto extends React.Component {
             <div className="nameContainer">
               <Link to={`/businesses/${this.props.match.params.business_id}`}><h1>{this.props.business.name}:</h1></Link> &nbsp; <span>Add Photos</span>
             </div>
-            <div className="viewAllPhotos"><Link to = {`/businesses/${this.props.match.params.business_id}/photos`}>View All Photos</Link></div>
+            <div className="viewAllPhotos"><Link to = {`/business/${this.props.match.params.business_id}/photos`}>View All Photos</Link></div>
           </div>
         </div>
 
