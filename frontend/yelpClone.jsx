@@ -22,13 +22,7 @@ document.addEventListener('DOMContentLoaded', () => {
   delete window.current_user;
 
 
-  window.getState= store.getState;
-  window.dispatch=store.dispatch;
-  window.createReview=createReview;
-  window.receiveAllBusinesses = receiveAllBusinesses;
-  window.receiveBusiness = receiveBusiness;
-  window.fetchBusinesses=fetchBusinesses;
-  window.fetchBusiness = fetchBusiness;
+
 
 
   ReactDOM.render(<Root store={store} />, root);
