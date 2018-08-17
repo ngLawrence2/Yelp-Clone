@@ -18,6 +18,10 @@ class MapBusiness extends React.Component {
   }
 
   updateMap(nextProps) {
+
+    let centerOfMap;
+
+
     const map = ReactDOM.findDOMNode(this.refs.map);
     const latlng = new google.maps.LatLng(nextProps.loc);
     const options = {
@@ -26,10 +30,37 @@ class MapBusiness extends React.Component {
     }
     this.map = new google.maps.Map(map, options);
 
-    const marker = new google.maps.Marker({
-      position:latlng,
-      map: this.map
-    });
+      let marker;
+    if(this.props.placeMarkers) {
+        for(let i = 0 ; i < this.props.placeMarkers.length; i++) {
+          let markerLocation = {
+            lat: this.props.placeMarkers[i].lat,
+            lng: this.props.placeMarkers[i].lng
+          }
+          const markerPos = new google.maps.LatLng(markerLocation);
+          new google.maps.Marker({
+            position:markerPos,
+            map:this.map
+          });
+        }
+
+    } else {
+      marker = new google.maps.Marker({
+       position:latlng,
+       map: this.map
+     });
+    }
+
+  
+
+
+
+    //const testlatlng = new google.maps.LatLng({lat:37.7980047, lng:-122.4079241});
+
+    // const marker2 = new google.maps.Marker({
+    //   position: testlatlng,
+    //   map:this.map
+    // });
 
     if(this.props.updateResults) {
       let that = this;
@@ -40,8 +71,8 @@ class MapBusiness extends React.Component {
           northEast: { lat:north, lng: east },
           southWest: { lat: south, lng: west }
         };
-        //this is referring to google maps so this.props.near/find/updateResults is empty
-        
+
+
         console.log(that.props.near);
         console.log(that.props.find);
         const values = {

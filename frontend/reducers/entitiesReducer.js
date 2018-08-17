@@ -13,6 +13,6 @@ export default combineReducers({
   reviews: ReviewReducer,
   keywords: KeywordReducer,
   users: UserReducer,
-  filters: FilterReducer,
-  ui: UIReducer
+  filters: FilterReducer
+//  ui: UIReducer
 });

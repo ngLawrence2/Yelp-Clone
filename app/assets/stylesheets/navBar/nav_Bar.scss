@@ -83,12 +83,20 @@
       a {
         color:white;
         margin-right: 20px;
+      }
+      a:hover {
+        background-color:rgb(150, 0, 0);
+      }
+
+      span {
+        color:white;
+        margin-right: 20px;
         img {
           width:20px;
           height:20px;
         }
       }
-      a:hover {
+      span:hover {
         background-color:rgb(150, 0, 0);
       }
     }

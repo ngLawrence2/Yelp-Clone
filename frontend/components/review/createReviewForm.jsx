@@ -63,6 +63,11 @@ class CreateReviewForm extends React.Component {
     });
     return (
       <div>
+
+        <header className="sessionHeader">
+          <img className = "headerStars" src = {window.images.header_stars} />
+          <img className="headerLogo" src = {window.images.logo} />
+        </header>
         <div className="ReviewForm">
           <form>
           Write a Review!

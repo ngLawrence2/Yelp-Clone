@@ -9,7 +9,12 @@ import SearchNavBarContainer from '../nav_bar/search_nav_bar_container';
 class BusinessIndex extends React.Component {
   constructor(props) {
     super(props);
+    this.state = {
+      markerArray: []
+    };
   }
+
+
 
   componentWillMount() {
     const str = this.props.history.location.search
@@ -37,14 +42,18 @@ class BusinessIndex extends React.Component {
     if(!this.props.businesses) {
       return null;
     }
-
-
+    const markerArray = [];
     const displayAllBusiness = Object.keys(this.props.businesses).map(businessId => {
+
+      let locationOfBusiness = {
+        lat: this.props.businesses[businessId].lat,
+        lng: this.props.businesses[businessId].lng
+      };
+      markerArray.push(locationOfBusiness);
       return (
           <SearchItem key={businessId} business = {this.props.businesses[businessId]} />
       );
     });
-
 
 
     return (
@@ -64,7 +73,7 @@ class BusinessIndex extends React.Component {
           </div>
 
           <div className="mapRes">
-            <MapBusiness updateResults={this.props.updateLocation} near={this.props.filters.near} find={this.props.filters.find} loc={{lat: this.props.loc.lat, lng:this.props.loc.lng}}/>
+            <MapBusiness updateResults={this.props.updateLocation} placeMarkers={markerArray} near={this.props.filters.near} find={this.props.filters.find} loc={{lat: this.props.loc.lat, lng:this.props.loc.lng}}/>
           </div>
 
         </div>

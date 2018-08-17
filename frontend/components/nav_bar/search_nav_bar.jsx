@@ -89,7 +89,14 @@ class SearchNavBar extends React.Component {
   }
 
   render() {
-
+    const reviewLink = () => {
+      if(this.props.match.params.business_id) {
+        return `/business/${this.props.match.params.business_id}/writeReview`;
+      }else {
+        return "/";
+      }
+    }
+    debugger;
     return (
       <div className="header">
             <div className="searchBarNav">
@@ -117,13 +124,13 @@ class SearchNavBar extends React.Component {
             <div className="quickLinkContainer">
             <div className="headerLinks">
               <div className="links">
-                <Link to = "#"><img src = {window.images.restaurant} />Restaurants</Link>
-                <Link to ="#"><img src = {window.images.nightlife} />NightLife</Link>
-                <Link to ="#"><img src = {window.images.homeServices} />Home Services</Link>
-                <Link to ="#"><img src = {window.images.delivery} />Delivery</Link>
-                <Link to ="#">Write a Review</Link>
-                <Link to ="#">Talk</Link>
-                <Link to ="#">Events</Link>
+                <span><img src = {window.images.restaurant} />Restaurants</span>
+                <span><img src = {window.images.nightlife} />NightLife</span>
+                <span><img src = {window.images.homeServices} />Home Services</span>
+                <span><img src = {window.images.delivery} />Delivery</span>
+                <span><Link to ={reviewLink()} >Write a Review</Link></span>
+                <span>Talk</span>
+                <span>Events</span>
               </div>
               <div className="LogIn">
               <Link to = "/login">Log In</Link>

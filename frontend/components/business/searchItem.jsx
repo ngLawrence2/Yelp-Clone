@@ -58,13 +58,7 @@ class SearchItem extends React.Component {
           <div className="reviewPrev">
             <div>
               "{this.props.business.reviewPreview}..."
-              dsassss sssssss ssss  ssssss
-              dsad sadsa
-              dsad sadsa
-              dsadsa dsadsadsad
-              dsadsads asadsadsa
-              dsadsad sadsadsaddsadasd
-              dasdsa
+
               <Link to = {`/businesses/${this.props.business.id}`}>Read More</Link>
             </div>
           </div>
