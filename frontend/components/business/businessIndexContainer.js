@@ -2,12 +2,12 @@ import {connect} from 'react-redux';
 import {fetchBusinesses,saveFilter,updateLocation} from '../../actions/business/business';
 import BusinessIndex from './businessIndex';
 import {saveLoc} from '../../actions/ui/ui';
-import {filterResults} from '../../reducers/selectors';
+import {filterPrice,filterOpen} from '../../reducers/selectors';
 
 
 const mapStateToProps = (state,ownProps) => {
-  const results = filterResults(state.entities.businesses, "price", '$$');
-
+  const results = filterPrice(state.entities.businesses, '$$');
+  const hoursResults = filterOpen(state.entities.businesses);
   return {
     businesses: state.entities.businesses,
     filteredBusinesses: results,

@@ -1,0 +1,27 @@
+.filterBar {
+  width: 100%;
+  background: #f5f5f5;
+  border-bottom: 1px solid #e6e6e6;
+  margin-top:25px;
+  height:75px;
+  display: flex;
+
+  .filterButtonContainer {
+    width:930px;
+    margin:auto;
+    display:flex;
+
+    button {
+      height:50px;
+      width:auto;
+      background-color: white;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+      text-align: center;
+    }
+
+    .OpenFilter {
+      margin-left:10px;
+    }
+  }
+}

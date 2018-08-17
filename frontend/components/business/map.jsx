@@ -13,6 +13,15 @@ class MapBusiness extends React.Component {
     }
   }
 
+  componentDidUpdate(prevProps) {
+    debugger;
+    if(this.props.placeMarkers) {
+    if (this.props.placeMarkers.length !== prevProps.placeMarkers.length) {
+      this.updateMap(this.props);
+    }
+  }
+}
+
   componentDidMount() {
     this.updateMap(this.props);
   }
@@ -51,7 +60,7 @@ class MapBusiness extends React.Component {
      });
     }
 
-  
+
 
 
 

@@ -23,7 +23,7 @@ class BusinessInfo extends React.Component {
               </div>
             </div>
             <div className="quickBusinessLinks">
-                <button className="reviewButton"><span className="fa fa-star quickLinkStar"></span>Write a Review</button>
+                <button className="reviewButton"><Link to ={`/business/${this.props.business.id}/writeReview`} ><span className="fa fa-star quickLinkStar"></span>Write a Review</Link></button>
                 <div className="socialMediaLinks">
                   <Link to = {`/business/${this.props.business.id}/upload`}><button><img src={window.images.camera}/>Add Photo</button></Link>
                   <button><img src = {window.images.saveIcon} />Share</button>

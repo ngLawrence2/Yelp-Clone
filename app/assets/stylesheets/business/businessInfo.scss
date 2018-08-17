@@ -59,12 +59,18 @@
       }
       .reviewButton {
         background-color: #bd1f1f;
-        color:white;
+
         height:40px;
         width:130px;
         font-size:13px;
         border-radius: 5px;
+        a {
+          color:white;
+          text-decoration: none;
+        }
       }
+
+
 
       .quickLinkStar {
         color:white;
