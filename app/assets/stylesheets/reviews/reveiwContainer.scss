@@ -8,6 +8,47 @@
   width:70%;
   margin: 15px;
 
+  .startReviewContainer {
+    display:flex;
+    .currentUserReviewContainer {
+      min-width:20%;
+      margin-top:20px;
+      text-align: center;
+    }
+    .startReviewBox {
+      width:80%;
+      display:block;
+
+      .linkToStartReview {
+        text-align: center;
+        padding:20px;
+        min-height: 60px;
+          border-radius: 5px;
+          background: #f5f5f5;
+      border: 1px solid #e6e6e6;
+        .linkReview {
+          width:100%;
+          border-top: 1px solid gray;
+          margin-top: 10px;
+        }
+        .giveStars {
+          background-image: asset_url('ratings.png');
+          background-position: 0px 0px;
+          width: 129px;
+          height: 22px;
+
+          margin: auto;
+          margin-bottom: 10px;
+
+        }
+          a {
+            color:blue;
+
+        }
+      }
+    }
+  }
+
 
   .reviewItemContainer {
     display: flex;

@@ -11,7 +11,8 @@ const mapStateToProps = (state,ownProps) => {
     keywords: state.entities.keywords,
     filters: state.entities.filters,
     reviews: state.entities.reviews,
-    users: state.entities.users
+    users: state.entities.users,
+    currentUser: state.session.currentUser
   }
 }
 

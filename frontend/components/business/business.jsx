@@ -32,7 +32,16 @@ class Business extends React.Component {
     if(!this.props.business) {
       return null;
     }
+    const getCurrentUser = () => {
+      if(!this.props.currentUser) {
+          return (
+            <Link to = "/login">Login to write a review!</Link>
+          );
+      }else {
+        return this.props.currentUser.fname + " " + this.props.currentUser.lname.charAt(0)+".";
+      }
 
+    }
     const photoKeys = Object.keys(this.props.photos).slice(0,3);
     const displayReviews = Object.keys(this.props.reviews).map(reviewId => {
       return (
@@ -81,7 +90,17 @@ class Business extends React.Component {
 
       <div className="reviewAndSideBarContainer" >
         <div className="reviewContainer">
-          <div>Your Review Here</div>
+          <div className="startReviewContainer">
+            <div className="currentUserReviewContainer">
+              {getCurrentUser()}
+            </div>
+            <div className="startReviewBox">
+                <div className="linkToStartReview">
+                <div className="giveStars"></div>
+              <div className="linkReview"> <Link to ={`/business/${this.props.business.id}/writeReview`}>Start your review of {this.props.business.name}</Link></div>
+              </div>
+            </div>
+          </div>
           <div>{displayReviews}</div>
         </div>
 
