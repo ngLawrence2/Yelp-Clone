@@ -56,16 +56,6 @@ class MapBusiness extends React.Component {
     }
 
 
-
-
-
-    //const testlatlng = new google.maps.LatLng({lat:37.7980047, lng:-122.4079241});
-
-    // const marker2 = new google.maps.Marker({
-    //   position: testlatlng,
-    //   map:this.map
-    // });
-
     if(this.props.updateResults) {
       let that = this;
 

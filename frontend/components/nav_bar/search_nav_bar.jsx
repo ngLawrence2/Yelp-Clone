@@ -37,17 +37,7 @@ class SearchNavBar extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    // const filter = {
-    //   near: this.state.near,
-    //   find: this.state.find
-    // };
-    // this.props.saveFilter(filter);
-    // this.props.history.push({
-    //   pathname: '/businesses',
-    //   search: `find=${this.state.find}&near=${this.state.near}`
-    // });
     this.getLocation();
-    // this.props.fetchBusinesses(filter);
   }
 
   getLocation() {

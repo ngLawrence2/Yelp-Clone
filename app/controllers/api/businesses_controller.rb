@@ -6,7 +6,8 @@ class Api::BusinessesController < ApplicationController
 
       # find, bounds
 
-  
+
+
       if ((!params[:search][:find].nil?) && (params[:search][:find].length>0))
           if(params[:search][:find].length>0)
             @businesses = Business.joins(:keywords).includes(:keywords).where("keywords.name ILIKE ? OR businesses.name ILIKE ?", "%#{params[:search][:find]}%" ,"%#{params[:search][:find]}%")
@@ -19,6 +20,7 @@ class Api::BusinessesController < ApplicationController
             .in_bounds(bounds)
           end
         elsif (bounds)
+          debugger
           @business = Business.in_bounds(bounds)
       end
 

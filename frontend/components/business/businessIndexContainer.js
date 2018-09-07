@@ -6,7 +6,7 @@ import {filterPrice,filterOpen} from '../../reducers/selectors';
 
 
 const mapStateToProps = (state,ownProps) => {
-  const results = filterPrice(state.entities.businesses, '$');
+  // const results = filterPrice(state.entities.businesses, '$');
 //  const hoursResults = filterOpen(state.entities.businesses);
 
   return {
@@ -14,8 +14,7 @@ const mapStateToProps = (state,ownProps) => {
     //filteredBusinesses: results,
     filters: state.entities.filters,
     loc: {
-      // lat: parseFloat(state.entities.ui.lat),
-      // lng: parseFloat(state.entities.ui.lng)
+
       lat: parseFloat(state.ui.lat),
       lng: parseFloat(state.ui.lng)
       }

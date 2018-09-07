@@ -1,10 +1,10 @@
 import React from 'react';
 import SearchNavBar from '../nav_bar/search_nav_bar.jsx';
-// import BusinessInfoContainer from './businessInfoContainer';
+
 import BusinessInfo from './businessInfo';
 import Footer from '../footer/footer';
 import MapBusiness from './map';
-// import SideBarContainer from './sideBarInfoContainer';
+
 import SideBarInfo from './sideBarInfo';
 import BusinessPhotos from './photos';
 import {Link} from 'react-router-dom';
