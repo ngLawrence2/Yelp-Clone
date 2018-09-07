@@ -13,18 +13,16 @@ class Api::BusinessesController < ApplicationController
             @businesses = Business.joins(:keywords).includes(:keywords).where("keywords.name ILIKE ? OR businesses.name ILIKE ?", "%#{params[:search][:find]}%" ,"%#{params[:search][:find]}%")
           end
           if(bounds)
-
             @businesses = Business.joins(:keywords)
             .includes(:keywords)
             .where("keywords.name ILIKE ? OR businesses.name ILIKE ?", "%#{params[:search][:find]}%" ,"%#{params[:search][:find]}%")
             .in_bounds(bounds)
           end
+
         elsif (bounds)
-          debugger
           @business = Business.in_bounds(bounds)
       end
-
-
+      debugger
       @businesses
       #change active storage query
     render "api/businesses/index"

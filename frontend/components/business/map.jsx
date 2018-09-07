@@ -9,14 +9,14 @@ class MapBusiness extends React.Component {
 
   componentWillReceiveProps(nextProps) {
     if(nextProps.loc.lat !== this.props.loc.lat) {
-      this.updateMap(nextProps);
+      //this.updateMap(nextProps);
     }
   }
 
   componentDidUpdate(prevProps) {
     if(this.props.placeMarkers) {
     if (this.props.placeMarkers.length !== prevProps.placeMarkers.length) {
-      this.updateMap(this.props);
+      //this.updateMap(this.props);
     }
   }
 }
@@ -58,15 +58,12 @@ class MapBusiness extends React.Component {
 
     if(this.props.updateResults) {
       let that = this;
-
       google.maps.event.addListener(this.map, 'idle', () => {
         const { north, south, east, west } = this.map.getBounds().toJSON();
         const bounds = {
           northEast: { lat:north, lng: east },
           southWest: { lat: south, lng: west }
         };
-
-
         console.log(that.props.near);
         console.log(that.props.find);
         const values = {
@@ -74,16 +71,12 @@ class MapBusiness extends React.Component {
           near: that.props.near,
           find: that.props.find
         }
-
          that.props.updateResults(values);
-
       });
     }
   }
 
-
   render() {
-
     return (
         <div className="map" ref="map"/>
     );

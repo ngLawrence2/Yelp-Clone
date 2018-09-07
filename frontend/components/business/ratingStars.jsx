@@ -8,7 +8,7 @@ class RatingStars extends React.Component {
   getStars(rating) {
     rating = Math.round(rating * 2 ) / 2;
     const ratingsPosition = [
-      [0 , -217],
+      [0 , -218],
       [0, -195],
       [0,-169],
       [0,-146],

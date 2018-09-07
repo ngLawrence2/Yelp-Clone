@@ -79,7 +79,6 @@ class SearchNavBar extends React.Component {
   }
 
   render() {
-
     let photoLink = "/";
     if(this.props.id !== undefined) {
       photoLink = `/business/${this.props.id}/writeReview`;

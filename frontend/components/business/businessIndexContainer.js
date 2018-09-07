@@ -14,7 +14,6 @@ const mapStateToProps = (state,ownProps) => {
     //filteredBusinesses: results,
     filters: state.entities.filters,
     loc: {
-
       lat: parseFloat(state.ui.lat),
       lng: parseFloat(state.ui.lng)
       }

@@ -33,8 +33,6 @@ class BusinessIndex extends React.Component {
       lat: str.slice(str.indexOf('lat=')+4, str.indexOf('+lng')),
       lng:str.slice(str.lastIndexOf("=")+1)
     };
-
-
     this.props.saveLoc(prevLoc);
     this.props.saveFilter(search);
     this.props.fetchBusinesses(search);
@@ -87,13 +85,10 @@ class BusinessIndex extends React.Component {
             </div>
           </div>
         </div>
-
         <div className="businessResults">
-
           <div className="searchRes">
             {displayAllBusiness}
           </div>
-
           <div className="mapRes">
             <MapBusiness updateResults={this.props.updateLocation} placeMarkers={markerArray} near={this.props.filters.near} find={this.props.filters.find} loc={{lat: this.props.loc.lat, lng:this.props.loc.lng}}/>
           </div>

@@ -19,7 +19,6 @@ class NavBar extends React.Component {
 
   getLocation() {
     let that = this;
-
     const geocoder = new google.maps.Geocoder;
     geocoder.geocode( { 'address': this.state.near}, (results, status) => {
       if (status == 'OK') {
@@ -45,6 +44,7 @@ class NavBar extends React.Component {
           find:that.state.find,
           near: that.state.near
         };
+
         that.props.getLatLng({lat:37.79402839999999,lng:-122.4028156});   //default for San Francisco
         that.props.fetchBusinesses(search).then((res) => {
           that.props.history.push({
@@ -92,22 +92,8 @@ class NavBar extends React.Component {
   }
 
   search(e) {
-
-
     e.preventDefault();
-    // const search = {
-    //   find:that.state.find,
-    //   near: that.state.near
-    // };
     this.getLocation();
-
-    // this.props.saveFilter(search);
-    // this.props.fetchBusinesses(search).then((res) => {
-    //   this.props.history.push({
-    //     pathname:"/businesses",
-    //     search: `find=${search.find}&near=${search.near}`
-    //   });
-    // });
   }
 
 

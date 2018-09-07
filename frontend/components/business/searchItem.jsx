@@ -6,6 +6,7 @@ class SearchItem extends React.Component {
   constructor(props) {
     super(props);
     this.getAltImage=this.getAltImage.bind(this);
+    this.getReviewPreview=this.getReviewPreview.bind(this);
   }
 
 
@@ -20,9 +21,11 @@ class SearchItem extends React.Component {
   }
 
   getReviewPreview() {
-    return (
-      <div>{`${this.props.business.reviewPreview.slice(0,151)}`}</div>
-    );
+    if (this.props.business.reviewPreview!==null) {
+      return (
+        <div>{`${this.props.business.reviewPreview.slice(0,151)}`}</div>
+      );
+    }
   }
 
   render() {
@@ -48,7 +51,6 @@ class SearchItem extends React.Component {
                <div><Link to = {`/businesses/${this.props.business.id}`}>{this.props.business.name}</Link></div>
                <div><RatingStars rating = {averageRating} /></div>
                <div>{this.props.business.price} <span>{displaySetOfKeywords}</span></div>
-
             </div>
 
             <div className="searchResultBusinessContact">
@@ -59,7 +61,7 @@ class SearchItem extends React.Component {
 
           <div className="reviewPrev">
             <div>
-              "{this.props.business.reviewPreview}..."
+              "{this.getReviewPreview()}..."
 
               <Link to = {`/businesses/${this.props.business.id}`}>Read More</Link>
             </div>
