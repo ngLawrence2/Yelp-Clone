@@ -21,5 +21,8 @@ class Business < ApplicationRecord
      .where("lng < ?", bounds[:northEast][:lng])
  end
 
-
+ #37.7638791 < 37.87537359551267
+ #37.7638791 > 37.71259354249268
+ #-122.1961996 > -122.50581242617187
+ #-122.1961996 < -122.29981877382812 #false here in Oakland case
 end

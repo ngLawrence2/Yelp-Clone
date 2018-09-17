@@ -6,6 +6,7 @@ const BusinessReducer = (state={},action) => {
     case FILTER_PRICE:
     case FILTER_HOURS:
     case RECEIVE_ALL_BUSINESSES:
+      
       return action.businesses;
     case RECEIVE_BUSINESS:
       return action.payload.business;
