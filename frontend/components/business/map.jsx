@@ -15,13 +15,23 @@ class MapBusiness extends React.Component {
   }
 
   componentDidUpdate(prevProps) {
-    if(this.props.placeMarkers) {
-    if (this.props.placeMarkers.length !== prevProps.placeMarkers.length) {
+    if (this.props.businesses) {
+      let businessIds = Object.keys(this.props.businesses);
+      for(let i = 0; i < businessIds.length; i++) {
+        let markerLocation = {
+          lat: this.props.businesses[businessIds[i]].lat,
+          lng: this.props.businesses[businessIds[i]].lng
+        }
 
-    //  this.updateMap(this.props);
+        const markerPos = new google.maps.LatLng(markerLocation);
+        new google.maps.Marker({
+          position:markerPos,
+          map:this.map
+        });
+      }
     }
   }
-}
+
 
   componentDidMount() {
     this.updateMap(this.props);
@@ -38,6 +48,8 @@ class MapBusiness extends React.Component {
     }
     this.map = new google.maps.Map(map, options);
       let marker;
+
+
     if(this.props.placeMarkers) {
         for(let i = 0 ; i < this.props.placeMarkers.length; i++) {
           let markerLocation = {
@@ -71,7 +83,7 @@ class MapBusiness extends React.Component {
         console.log(that.props.find);
         const values = {
           bounds: bounds,
-          near: that.props.near,
+          // near: that.props.near,
           find: that.props.find
         }
 

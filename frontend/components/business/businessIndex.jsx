@@ -90,7 +90,7 @@ class BusinessIndex extends React.Component {
             {displayAllBusiness}
           </div>
           <div className="mapRes">
-            <MapBusiness updateResults={this.props.updateLocation} placeMarkers={markerArray} near={this.props.filters.near} find={this.props.filters.find} loc={{lat: this.props.loc.lat, lng:this.props.loc.lng}}/>
+            <MapBusiness updateResults={this.props.updateLocation} businesses={this.props.businesses} placeMarkers={markerArray} near={this.props.filters.near} find={this.props.filters.find} loc={{lat: this.props.loc.lat, lng:this.props.loc.lng}}/>
           </div>
 
         </div>
