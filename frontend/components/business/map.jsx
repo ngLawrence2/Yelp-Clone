@@ -9,6 +9,7 @@ class MapBusiness extends React.Component {
 
   componentWillReceiveProps(nextProps) {
     if(nextProps.loc.lat !== this.props.loc.lat) {
+
       this.updateMap(nextProps);
     }
   }
@@ -16,7 +17,8 @@ class MapBusiness extends React.Component {
   componentDidUpdate(prevProps) {
     if(this.props.placeMarkers) {
     if (this.props.placeMarkers.length !== prevProps.placeMarkers.length) {
-      this.updateMap(this.props);
+
+    //  this.updateMap(this.props);
     }
   }
 }
@@ -28,6 +30,7 @@ class MapBusiness extends React.Component {
   updateMap(nextProps) {
     let centerOfMap;
     const map = ReactDOM.findDOMNode(this.refs.map);
+
     const latlng = new google.maps.LatLng(nextProps.loc);
     const options = {
       center: latlng,
@@ -71,7 +74,7 @@ class MapBusiness extends React.Component {
           near: that.props.near,
           find: that.props.find
         }
-      
+
          that.props.updateResults(values);
       });
     }
