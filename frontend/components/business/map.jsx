@@ -4,17 +4,24 @@ import ReactDOM from 'react-dom';
 class MapBusiness extends React.Component {
   constructor(props) {
     super(props);
+    this.removeOldMarkers=this.removeOldMarkers.bind(this);
+    this.markers = [];
   }
 
+  removeOldMarkers() {
+    for(let i = 0 ; i < this.markers.length; i++) {
+      this.markers[i].setMap(null);
+    }
+  }
 
   componentWillReceiveProps(nextProps) {
     if(nextProps.loc.lat !== this.props.loc.lat) {
-
       this.updateMap(nextProps);
     }
   }
 
   componentDidUpdate(prevProps) {
+    this.removeOldMarkers();
     if (this.props.businesses) {
       let businessIds = Object.keys(this.props.businesses);
       for(let i = 0; i < businessIds.length; i++) {
@@ -22,12 +29,15 @@ class MapBusiness extends React.Component {
           lat: this.props.businesses[businessIds[i]].lat,
           lng: this.props.businesses[businessIds[i]].lng
         }
-
         const markerPos = new google.maps.LatLng(markerLocation);
-        new google.maps.Marker({
+        this.markers.push(new google.maps.Marker({
           position:markerPos,
           map:this.map
-        });
+        }))
+        // new google.maps.Marker({
+        //   position:markerPos,
+        //   map:this.map
+        // });
       }
     }
   }
@@ -47,28 +57,6 @@ class MapBusiness extends React.Component {
       zoom: 11,
     }
     this.map = new google.maps.Map(map, options);
-      let marker;
-
-
-    if(this.props.placeMarkers) {
-        for(let i = 0 ; i < this.props.placeMarkers.length; i++) {
-          let markerLocation = {
-            lat: this.props.placeMarkers[i].lat,
-            lng: this.props.placeMarkers[i].lng
-          }
-          const markerPos = new google.maps.LatLng(markerLocation);
-          new google.maps.Marker({
-            position:markerPos,
-            map:this.map
-          });
-        }
-
-    } else {
-      marker = new google.maps.Marker({
-       position:latlng,
-       map: this.map
-     });
-    }
 
 
     if(this.props.updateResults) {

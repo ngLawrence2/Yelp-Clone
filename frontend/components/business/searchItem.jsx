@@ -23,7 +23,7 @@ class SearchItem extends React.Component {
   getReviewPreview() {
     if (this.props.business.reviewPreview!==null) {
       return (
-        <div>{`${this.props.business.reviewPreview.slice(0,151)}`}</div>
+        <div>"{`${this.props.business.reviewPreview.slice(0,151)}`}"</div>
       );
     }
   }
@@ -60,8 +60,8 @@ class SearchItem extends React.Component {
           </div>
 
           <div className="reviewPrev">
-            <div>
-              "{this.getReviewPreview()}..."
+            <div className="reviewPreviewLink">
+              {this.getReviewPreview()}...
 
               <Link to = {`/businesses/${this.props.business.id}`}>Read More</Link>
             </div>

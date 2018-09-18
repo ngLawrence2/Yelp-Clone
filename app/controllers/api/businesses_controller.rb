@@ -79,7 +79,7 @@ class Api::BusinessesController < ApplicationController
       #   elsif (bounds)
       #     @business = Business.in_bounds(bounds)
       # end
-      debugger;
+
 
       @businesses
       #change active storage query
