@@ -14,9 +14,7 @@ const ExtraFilterReducer = (state={},action) => {
     case REMOVE_FILTER:
     let result = merge({},state);
     let filterToDelete=action.filter;
-
     delete result[filterToDelete];
-    debugger;
     return result;
     default:
       return state;

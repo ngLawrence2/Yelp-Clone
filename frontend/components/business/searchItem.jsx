@@ -32,11 +32,15 @@ class SearchItem extends React.Component {
     if(!this.props.business.businessPhoto) {
       return null;
     }
-    const displaySetOfKeywords = this.props.business.keywords.slice(0,3).map((k,idx) => {
-      return (
-        <span className="keywordCategory" key ={idx}>{k}</span>
-      );
-    })
+      const keywords = this.props.business.keywords.slice(0,3).join(', ');
+
+    // const displaySetOfKeywords = this.props.business.keywords.slice(0,3).map((k,idx) => {
+    //   return (
+    //     <span className="keywordCategory" key ={idx}>{k}  </span>
+    //   );
+    // })
+    const displaySetOfKeywords = <span className="keywordCategory">{keywords}</span>;
+
 
     this.getAltImage();
     let averageRating = (this.props.business.averageRating * 2 ) / 2;

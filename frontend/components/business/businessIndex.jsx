@@ -95,9 +95,9 @@ class BusinessIndex extends React.Component {
             <div className="filterButtonContainer">
             <div className="PriceFilter">
               <button onClick={e=>this.filterController("$")}>$</button>
-              <button onClick={e=>this.props.receiveNewFilters("$$")}>$$</button>
-              <button onClick={e=>this.props.receiveNewFilters("$$$")}>$$$</button>
-              <button onClick={e=>this.props.receiveNewFilters("$$$$")}>$$$$</button>
+              <button onClick={e=>this.filterController("$$")}>$$</button>
+              <button onClick={e=>this.filterController("$$$")}>$$$</button>
+              <button onClick={e=>this.filterController("$$$$")}>$$$$</button>
             </div>
             <div className="OpenFilter">
               <button onClick={e=>alert('not implemented yet')}>Open Now</button>

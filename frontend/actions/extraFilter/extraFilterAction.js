@@ -20,6 +20,5 @@ const receiveNewFilter = filter => {
 }
 
 export const receiveNewFilters = filter => dispatch => {
-
   dispatch(receiveNewFilter(filter));
 }
