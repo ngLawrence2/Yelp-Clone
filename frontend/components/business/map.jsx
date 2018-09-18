@@ -23,11 +23,11 @@ class MapBusiness extends React.Component {
   componentDidUpdate(prevProps) {
     this.removeOldMarkers();
     if (this.props.businesses) {
-      let businessIds = Object.keys(this.props.businesses);
-      for(let i = 0; i < businessIds.length; i++) {
+      // let businessIds = Object.keys(this.props.businesses);
+      for(let i = 0; i < this.props.businesses.length; i++) {
         let markerLocation = {
-          lat: this.props.businesses[businessIds[i]].lat,
-          lng: this.props.businesses[businessIds[i]].lng
+          lat: this.props.businesses[i].lat,
+          lng: this.props.businesses[i].lng
         }
         const markerPos = new google.maps.LatLng(markerLocation);
         this.markers.push(new google.maps.Marker({

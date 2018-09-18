@@ -10,13 +10,42 @@ class BusinessIndex extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      markerArray: [],
       filter:false
     };
-    this.filterPrice=this.filterPrice.bind(this);
-    this.filterHours=this.filterHours.bind(this);
+    this.filterController = this.filterController.bind(this);
+  this.filterBusinesses=this.filterBusinesses.bind(this);
   }
 
+  filterController(val) {
+    if(this.props.extraFilters[val]) {
+      return this.props.removeFilters(val);
+    } else {
+      return this.props.receiveNewFilters(val);
+    }
+  }
+
+  filterBusinesses() {
+
+    let result = [];
+    if (Object.keys(this.props.extraFilters).length === 0) {
+
+
+      return Object.keys(this.props.businesses).map( obj => this.props.businesses[obj]);
+    }
+
+  //  let moneyFilters = Object.keys(this.props.extraFilters);
+
+    for(let i = 0 ; i < Object.keys(this.props.businesses).length; i++) {
+      let currentKey = Object.keys(this.props.businesses)[i];
+      let currentBusiness = this.props.businesses[currentKey];
+        if(this.props.extraFilters[currentBusiness.price]) {
+
+          result.push(currentBusiness);
+        }
+    }
+
+    return result;
+  }
 
 
   componentWillMount() {
@@ -38,31 +67,22 @@ class BusinessIndex extends React.Component {
     this.props.fetchBusinesses(search);
   }
 
-  filterPrice(val) {
-    // this.props.filterPrice(this.props.businesses,val);
-  }
 
-  filterHours() {
-
-    // this.props.filterHours(this.props.businesses);
-  }
 
   render() {
     if(!this.props.businesses) {
       return null;
     }
-    const markerArray = [];
-    const displayAllBusiness = Object.keys(this.props.businesses).map(businessId => {
 
-      let locationOfBusiness = {
-        lat: this.props.businesses[businessId].lat,
-        lng: this.props.businesses[businessId].lng
-      };
-      markerArray.push(locationOfBusiness);
+    const bus = this.filterBusinesses();
+
+    const displayAllBusiness = bus.map(business => {
       return (
-          <SearchItem key={businessId} business = {this.props.businesses[businessId]} />
+          <SearchItem key={business.id} business = {this.props.businesses[business.id]} />
       );
     });
+
+
 
     return (
       <div>
@@ -74,13 +94,13 @@ class BusinessIndex extends React.Component {
           <div className="filterBar">
             <div className="filterButtonContainer">
             <div className="PriceFilter">
-              <button onClick={(e)=>this.filterPrice("$")}>$</button>
-              <button onClick={e=>this.filterPrice("$$")}>$$</button>
-              <button onClick={e=>this.filterPrice("$$$")}>$$$</button>
-              <button onClick={e=>this.filterPrice("$$$$")}>$$$$</button>
+              <button onClick={e=>this.filterController("$")}>$</button>
+              <button onClick={e=>this.props.receiveNewFilters("$$")}>$$</button>
+              <button onClick={e=>this.props.receiveNewFilters("$$$")}>$$$</button>
+              <button onClick={e=>this.props.receiveNewFilters("$$$$")}>$$$$</button>
             </div>
             <div className="OpenFilter">
-              <button onClick={e=>this.filterHours()}>Open Now</button>
+              <button onClick={e=>alert('not implemented yet')}>Open Now</button>
             </div>
             </div>
           </div>
@@ -90,7 +110,7 @@ class BusinessIndex extends React.Component {
             {displayAllBusiness}
           </div>
           <div className="mapRes">
-            <MapBusiness updateResults={this.props.updateLocation} businesses={this.props.businesses} near={this.props.filters.near} find={this.props.filters.find} loc={{lat: this.props.loc.lat, lng:this.props.loc.lng}}/>
+            <MapBusiness updateResults={this.props.updateLocation} businesses={bus} near={this.props.filters.near} find={this.props.filters.find} loc={{lat: this.props.loc.lat, lng:this.props.loc.lng}}/>
           </div>
 
         </div>
