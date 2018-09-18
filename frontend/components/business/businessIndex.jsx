@@ -32,30 +32,87 @@ class BusinessIndex extends React.Component {
 
         //we are on the pm in current time
       if(currentHours > 12) {
+        let closedHours = closeTime.slice(0,closeTime.indexOf(':'));
+        let openHours = openTime.slice(0, openTime.indexOf(":"));
+
+        //they close in the PM
         if(closeTime.indexOf('pm')!==-1) {
-          let closedHours = closeTime.slice(0,closeTime.indexOf(':'));
-          if((currentHours-12) < closedHours) {
+          //they are open in the afternoon 3am - 11pm
+          if (openTime.indexOf('am')!== -1) {
+            if((currentHours-12) < closedHours) {
+              return true;
+            }
+          }
+          //they are open in the afternoon and current time is now in the afternoon 7am - 11pm
+          if (openTime.indexOf('am') === -1 && (currentHours-12) < closedHours) {
             return true;
           }
         }
+
         //closing hours are in the AM
         if(closeTime.indexOf('pm')=== -1) {
-            let closedHours = closeTime.slice(0,closeTime.indexOf(':'));
-            let openHours = openTime.slice(0, openTime.indexOf(":"));
-            // 7am - 11am only open in the morning
-            if(openHours < closedHours) {
-              return false;
-            } else {
-              // 7am - 1am open throughout the day
+          //11am - 1am
+
+            if(closedHours < openHours) {
               return true;
+            }
+
+            //example 6am - 11am
+            if (openTime.indexOf('am')!==-1) {
+              return false;
+            }
+            //7pm - 1 am
+            if(openTime.indexOf('am')=== -1) {
+              if((currentHours-12) > openTime) {
+                  return true;
+              }
             }
         }
       }
 
-      if (currentHours <= 12) {
-        
-      }
 
+      //currentHour is in the AM
+      if (currentHours <= 12) {
+        let closedHours = closeTime.slice(0,closeTime.indexOf(':'));
+        let openHours = openTime.slice(0, openTime.indexOf(":"));
+        //place closes at pm time
+        if(closeTime.indexOf('pm')!== -1) {
+          //place open in pm time
+          if(openTime.indexOf('pm')!==-1) {
+            return false;
+          }
+          //7am - 6pm
+          if(openTime.indexOf('pm')===-1) {
+            if(currentHours > openTime) {
+              return true;
+            }
+          }
+        }
+
+        //place closes am time
+        if(closeTime.indexOf('pm')===-1) {
+          //7am - 1am
+          if(closedHours < openHours) {
+            if(currentHours > openHours) {
+              return true;
+            }
+          }
+
+          //7pm - 11am
+          if(openTime.indexOf('pm')!==-1) {
+            if(openHours === currentHours && openHours===12) {
+              return true;
+            }
+          }
+
+          //3am - 11am
+          if(openTime.indexOf('pm')===-1) {
+            if(currentHours < closedHours && currentHours > openHours) {
+              return true;
+            }
+          }
+        }
+      }
 
       return false;
     }
