@@ -7,6 +7,7 @@ import KeywordReducer from './keywords';
 import FilterReducer from './filter';
 import UIReducer from './uireducer';
 import ExtraFilterReducer from './extraFilterReducer';
+import OpenFilterReducer from './openFilterReducer';
 
 export default combineReducers({
   businesses: BusinessReducer,
@@ -15,6 +16,7 @@ export default combineReducers({
   keywords: KeywordReducer,
   users: UserReducer,
   filters: FilterReducer,
-  extraFilter: ExtraFilterReducer
+  extraFilter: ExtraFilterReducer,
+  openFilter: OpenFilterReducer
 //  ui: UIReducer
 });

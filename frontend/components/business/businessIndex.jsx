@@ -12,14 +12,69 @@ class BusinessIndex extends React.Component {
     this.state = {
       filter:false
     };
-    this.filterController = this.filterController.bind(this);
+  this.filterController = this.filterController.bind(this);
   this.filterBusinesses=this.filterBusinesses.bind(this);
+  this.changeFilterColor=this.changeFilterColor.bind(this);
+  this.filterOpen=this.filterOpen.bind(this);
+  this.isOpen=this.isOpen.bind(this);
+  }
+
+
+    isOpen(currentBusiness) {
+      let currentDay = new Date().getDay();
+      let hours = currentBusiness.hours[currentDay];
+      if (hours === "Closed") {
+        return false;
+      }
+      let openTime = hours.slice(0,hours.indexOf('-'));
+      let closeTime=hours.slice(hours.indexOf('-')+1);
+      let currentHours = new Date().getHours();
+
+        //we are on the pm in current time
+      if(currentHours > 12) {
+        if(closeTime.indexOf('pm')!==-1) {
+          let closedHours = closeTime.slice(0,closeTime.indexOf(':'));
+          if((currentHours-12) < closedHours) {
+            return true;
+          }
+        }
+        //closing hours are in the AM
+        if(closeTime.indexOf('pm')=== -1) {
+            let closedHours = closeTime.slice(0,closeTime.indexOf(':'));
+            let openHours = openTime.slice(0, openTime.indexOf(":"));
+            // 7am - 11am only open in the morning
+            if(openHours < closedHours) {
+              return false;
+            } else {
+              // 7am - 1am open throughout the day
+              return true;
+            }
+        }
+      }
+
+      if (currentHours <= 12) {
+        
+      }
+
+
+      return false;
+    }
+
+
+  filterOpen(val) {
+    if(this.props.openFilter.openNow) {
+      return this.props.removeFilters();
+    }else {
+      return this.props.receiveOpenFilters(val);
+    }
   }
 
   filterController(val) {
     if(this.props.extraFilters[val]) {
+
       return this.props.removeFilters(val);
     } else {
+
       return this.props.receiveNewFilters(val);
     }
   }
@@ -27,24 +82,55 @@ class BusinessIndex extends React.Component {
   filterBusinesses() {
 
     let result = [];
-    if (Object.keys(this.props.extraFilters).length === 0) {
 
-
+    //we have no filters
+    if (Object.keys(this.props.extraFilters).length === 0 && (Object.keys(this.props.openFilter).length===0 || this.props.openFilter.openNow===false)) {
       return Object.keys(this.props.businesses).map( obj => this.props.businesses[obj]);
     }
 
-  //  let moneyFilters = Object.keys(this.props.extraFilters);
-
-    for(let i = 0 ; i < Object.keys(this.props.businesses).length; i++) {
-      let currentKey = Object.keys(this.props.businesses)[i];
-      let currentBusiness = this.props.businesses[currentKey];
-        if(this.props.extraFilters[currentBusiness.price]) {
-
-          result.push(currentBusiness);
-        }
+    //we filter things open
+    if(Object.keys(this.props.extraFilters).length=== 0 && this.props.openFilter.openNow) {
+      for(let i = 0 ; i < Object.keys(this.props.businesses).length; i++) {
+        let currentKey = Object.keys(this.props.businesses)[i];
+        let currentBusiness = this.props.businesses[currentKey];
+          if(this.isOpen(currentBusiness)) {
+            result.push(currentBusiness);
+          }
+      }
+      return result;
     }
 
-    return result;
+    //we filter everything by price only
+    if(Object.keys(this.props.extraFilters).length !== 0 && (Object.keys(this.props.openFilter).length===0 || this.props.openFilter.openNow===false)) {
+      for(let i = 0 ; i < Object.keys(this.props.businesses).length; i++) {
+        let currentKey = Object.keys(this.props.businesses)[i];
+        let currentBusiness = this.props.businesses[currentKey];
+          if(this.props.extraFilters[currentBusiness.price]) {
+            result.push(currentBusiness);
+          }
+      }
+      return result;
+    }
+
+    //we filter by price and open
+    if(Object.keys(this.props.extraFilters).length !== 0 && this.props.openFilter.openNow) {
+      for(let i = 0 ; i < Object.keys(this.props.businesses).length; i++) {
+        let currentKey = Object.keys(this.props.businesses)[i];
+        let currentBusiness = this.props.businesses[currentKey];
+          if(this.props.extraFilters[currentBusiness.price] && this.isOpen(currentBusiness)) {
+            result.push(currentBusiness);
+          }
+      }
+      return result;
+    }
+
+  }
+
+
+
+  changeFilterColor(val) {
+
+    return this.props.extraFilters[val];
   }
 
 
@@ -94,13 +180,13 @@ class BusinessIndex extends React.Component {
           <div className="filterBar">
             <div className="filterButtonContainer">
             <div className="PriceFilter">
-              <button onClick={e=>this.filterController("$")}>$</button>
-              <button onClick={e=>this.filterController("$$")}>$$</button>
-              <button onClick={e=>this.filterController("$$$")}>$$$</button>
-              <button onClick={e=>this.filterController("$$$$")}>$$$$</button>
+              <button className ={ this.props.extraFilters["$"] ? "filterOn" : "filter" } onClick={e=>this.filterController("$")}>$</button>
+              <button className ={ this.props.extraFilters["$$"] ? "filterOn" : "filter" } onClick={e=>this.filterController("$$")}>$$</button>
+              <button className ={ this.props.extraFilters["$$$"] ? "filterOn" : "filter" } onClick={e=>this.filterController("$$$")}>$$$</button>
+              <button  className ={ this.props.extraFilters["$$$$"] ? "filterOn" : "filter" } onClick={e=>this.filterController("$$$$")}>$$$$</button>
             </div>
             <div className="OpenFilter">
-              <button onClick={e=>alert('not implemented yet')}>Open Now</button>
+              <button className= {this.props.openFilter.openNow === true ? "filterOn" : "filter"} onClick={e=>this.filterOpen(true)}>Open Now</button>
             </div>
             </div>
           </div>
