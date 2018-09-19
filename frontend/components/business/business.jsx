@@ -22,6 +22,10 @@ class Business extends React.Component {
     this.props.fetchBusiness(this.props.match.params.business_id);
   }
 
+  componentDidMount() {
+    this.props.fetchBusiness(this.props.match.params.business_id);
+  }
+
   openDirections() {
     let directionUrl = `https://www.google.com/maps/search/?api=1&query=${this.props.business.address}%2C+${this.props.business.city}`;
     window.open(directionUrl);

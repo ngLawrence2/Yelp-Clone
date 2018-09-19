@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_08_13_160743) do
+ActiveRecord::Schema.define(version: 2018_09_19_222601) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -49,7 +49,6 @@ ActiveRecord::Schema.define(version: 2018_08_13_160743) do
     t.string "parking"
     t.boolean "takeOut"
     t.boolean "delivery"
-    t.float "rating", null: false
     t.string "hours", array: true
     t.index ["name"], name: "index_businesses_on_name"
   end

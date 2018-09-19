@@ -1,5 +1,5 @@
 class Business < ApplicationRecord
-  validates :name,:lat,:lng,:zipCode,:hours,:price,:phone,:city,:address, :rating, presence:true
+  validates :name,:lat,:lng,:zipCode,:hours,:price,:phone,:city,:address, presence:true
 
   has_many_attached :photo
 

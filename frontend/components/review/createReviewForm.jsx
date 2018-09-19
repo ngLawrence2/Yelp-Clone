@@ -21,7 +21,7 @@ class CreateReviewForm extends React.Component {
       business_id: this.props.business_id
     };
 
-    this.props.createReview(reviewObj);
+    this.props.createReview(reviewObj).then(this.props.history.push("/businesses/"+reviewObj.business_id));
   }
 
   handleUpdate(field) {
