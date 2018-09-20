@@ -3,6 +3,7 @@ import {fetchBusinesses,saveFilter,updateLocation,receiveAllBusinesses} from '..
 import BusinessIndex from './businessIndex';
 import {saveLoc} from '../../actions/ui/ui';
 import {receiveNewFilters,removeFilters, receiveOpenFilters} from '../../actions/extraFilter/extraFilterAction';
+import {saveBoundsToStore} from '../../actions/bounds/bounds';
 
 const mapStateToProps = (state,ownProps) => {
   return {
@@ -13,7 +14,8 @@ const mapStateToProps = (state,ownProps) => {
     loc: {
       lat: parseFloat(state.ui.lat),
       lng: parseFloat(state.ui.lng)
-      }
+    },
+    bounds: state.bounds
   }
 }
 
@@ -25,7 +27,8 @@ const mapDispatchToProps = dispatch => {
     saveLoc: (loc) => dispatch(saveLoc(loc)),
     receiveNewFilters: (newFilter) => dispatch(receiveNewFilters(newFilter)),
     removeFilters: (filter) => dispatch(removeFilters(filter)),
-    receiveOpenFilters: (filter) => dispatch(receiveOpenFilters(filter))
+    receiveOpenFilters: (filter) => dispatch(receiveOpenFilters(filter)),
+    saveBoundsToStore: (bounds) => dispatch(saveBoundsToStore(bounds))
   }
 }
 

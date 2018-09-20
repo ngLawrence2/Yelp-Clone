@@ -52,8 +52,10 @@ class SearchNavBar extends React.Component {
         that.props.getLatLng(location);
         const search = {
           find:that.state.find,
-          near: that.state.near
+          near: that.state.near,
+          bounds: that.props.bounds
         };
+
         that.props.saveFilter(search);
         that.props.fetchBusinesses(search).then((res) => {
           that.props.history.push({
@@ -65,9 +67,12 @@ class SearchNavBar extends React.Component {
       } else {
         const search = {
           find:that.state.find,
-          near: that.state.near
+          near: that.state.near,
+          bounds: that.props.bounds
         };
+
         that.props.getLatLng({lat:37.79402839999999,lng:-122.4028156});   //default for San Francisco
+        that.props.saveFilter(search);
         that.props.fetchBusinesses(search).then((res) => {
           that.props.history.push({
             pathname:"/businesses",

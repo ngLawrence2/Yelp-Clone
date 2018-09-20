@@ -139,7 +139,7 @@ class BusinessIndex extends React.Component {
   filterBusinesses() {
 
     let result = [];
-      
+
     //we have no filters
     if (Object.keys(this.props.extraFilters).length === 0 && (Object.keys(this.props.openFilter).length===0 || this.props.openFilter.openNow===false)) {
       return Object.keys(this.props.businesses).map( obj => this.props.businesses[obj]);
@@ -230,7 +230,7 @@ class BusinessIndex extends React.Component {
     return (
       <div>
         <div>
-          <SearchNavBarContainer find={this.props.filters.find} near={this.props.filters.near}  />
+          <SearchNavBarContainer find={this.props.filters.find} near={this.props.filters.near} bounds={this.props.bounds} saveBounds={this.props.saveBoundsToStore} />
         </div>
 
         <div className="filterBar">
@@ -253,7 +253,7 @@ class BusinessIndex extends React.Component {
             {displayAllBusiness}
           </div>
           <div className="mapRes">
-            <MapBusiness updateResults={this.props.updateLocation} businesses={bus} near={this.props.filters.near} find={this.props.filters.find} loc={{lat: this.props.loc.lat, lng:this.props.loc.lng}}/>
+            <MapBusiness updateResults={this.props.updateLocation} saveBounds={this.props.saveBoundsToStore} businesses={bus} near={this.props.filters.near} find={this.props.filters.find} loc={{lat: this.props.loc.lat, lng:this.props.loc.lng}}/>
           </div>
 
         </div>

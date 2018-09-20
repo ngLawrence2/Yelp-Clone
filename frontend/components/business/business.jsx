@@ -63,7 +63,7 @@ class Business extends React.Component {
 
           <div className="mapPhotoContainer">
               <div className="googleMap" onClick={this.openDirections}>
-                <MapBusiness title={this.props.business.name} loc={{lat: this.props.business.lat, lng: this.props.business.lng}} businesses={this.props.business}/>
+                <MapBusiness title={this.props.business.name} loc={{lat: this.props.business.lat, lng: this.props.business.lng}} business={this.props.business}/>
                 <div className="caption">
                   {this.props.business.address} <br/>
                 {this.props.business.city} {this.props.business.zipCode} CA <br />

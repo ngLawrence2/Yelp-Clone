@@ -1,4 +1,4 @@
-export const fetchAllBusinesses = ({near, find, bounds}) => {
+export const fetchAllBusinesses = ({near, find, bounds,mapChange}) => {
 
   return $.ajax({
     method:'GET',
@@ -7,7 +7,8 @@ export const fetchAllBusinesses = ({near, find, bounds}) => {
       search: {
         near,
         find,
-        bounds
+        bounds,
+        mapChange
       }
     }
   });
