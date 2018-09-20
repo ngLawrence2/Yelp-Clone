@@ -52,8 +52,7 @@ class SearchNavBar extends React.Component {
         that.props.getLatLng(location);
         const search = {
           find:that.state.find,
-          near: that.state.near,
-          bounds: that.props.bounds
+          near: that.state.near
         };
 
         that.props.saveFilter(search);
@@ -67,8 +66,7 @@ class SearchNavBar extends React.Component {
       } else {
         const search = {
           find:that.state.find,
-          near: that.state.near,
-          bounds: that.props.bounds
+          near: that.state.near
         };
 
         that.props.getLatLng({lat:37.79402839999999,lng:-122.4028156});   //default for San Francisco
