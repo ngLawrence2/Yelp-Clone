@@ -17,7 +17,7 @@ class MapBusiness extends React.Component {
   componentWillReceiveProps(nextProps) {
     if(nextProps.loc.lat !== this.props.loc.lat) {
       this.updateMap(nextProps);
-
+    
     }
   }
 
