@@ -102,7 +102,7 @@ class NavBar extends React.Component {
       <div>
         <div className="navBar">
           <div className="allLinks">
-            <h2>Write a Reiview</h2>
+            <h2>Write a Review</h2>
             <h2>Events</h2>
             <h2>Talk</h2>
           </div>

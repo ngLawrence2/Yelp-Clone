@@ -11,7 +11,7 @@ Category.delete_all
 Keyword.delete_all
 Review.delete_all
 
-u1 = User.create(fname:'Demo',lname:'User',zipCode:99999,email:'DemoUser@demo.com', password:'demouser')
+u1 = User.create(fname:'Demo',lname:'User',zipCode:99999,email:'DemoUser@demo.com', passworrd:'demouser')
 
 
 b1 = Business.create(name:"Creator", address:"680 Folsom St Ste 120",lat:37.7845584,lng:-122.39856409999999,zipCode:94107,hours:["10:00am-9:00pm", "10:00am-9:00pm", "10:00am-9:00pm", "10:00am-9:00pm", "10:00am-12:00am", "10:00am-1:00am", "Closed" ],price:"$$$",phone:"(806)680-3657",city:"San Francisco")
