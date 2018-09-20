@@ -63,26 +63,26 @@ b4.photo.attach(io: File.open('/home/lawrence/Desktop/images/Burger/superduper.j
 r1 = Review.create(body:'this place is the best',rating:5, user_id:u1.id, business_id: b1.id)
 
 k4 = Keyword.create(name:'Restaurant')
-# c4 = Category.create(keyword_id: k4.id, business_id: b1.id)
-# c5 = Category.create(keyword_id: k4.id, business_id: b2.id)
-# c10 =Category.create(keyword_id: k4.id, business_id: b3.id)
-# c6 = Category.create(keyword_id: k4.id, business_id: b4.id)
+c4 = Category.create(keyword_id: k4.id, business_id: b1.id)
+c5 = Category.create(keyword_id: k4.id, business_id: b2.id)
+c10 =Category.create(keyword_id: k4.id, business_id: b3.id)
+c6 = Category.create(keyword_id: k4.id, business_id: b4.id)
 # c11 = Category.create(keyword_id: k4.id, business_id: b5.id)
 
 
 k1 = Keyword.create(name:'Burgers')
-# c1 = Category.create(keyword_id: k1.id, business_id:b1.id)
-# c7 = Category.create(keyword_id: k1.id, business_id:b4.id)
-# c8 = Category.create(keyword_id: k1.id, business_id:b3.id)
+c1 = Category.create(keyword_id: k1.id, business_id:b1.id)
+c7 = Category.create(keyword_id: k1.id, business_id:b4.id)
+c8 = Category.create(keyword_id: k1.id, business_id:b3.id)
 
 
 k2 = Keyword.create(name: 'Chinese')
-# c2 = Category.create(keyword_id: k2.id, business_id:b2.id)
+c2 = Category.create(keyword_id: k2.id, business_id:b2.id)
 
 
 k3 = Keyword.create(name: 'Fast Food')
-# c3 = Category.create(keyword_id: k3.id, business_id:b3.id)
-# c9 = Category.create(keyword_id: k3.id, business_id:b4.id)
+c3 = Category.create(keyword_id: k3.id, business_id:b3.id)
+c9 = Category.create(keyword_id: k3.id, business_id:b4.id)
 # b5= Business.create(name: "San Tung", address: "1031 Irving St ", city: "San Francisco", zipCode: 94122,lat: 37.76367,lng: -122.46896,phone: "(415) 242-0828", price: "$$", creditCard: "Yes", parking: "Yes", takeOut: "Yes", delivery: "Yes", hours: ["11:00am-03:00pm", "05:00pm-09:30pm", "11:00am-03:00pm", "05:00pm-09:30pm", "11:00am-03:00pm", "05:00pm-09:30pm", "11:00am-03:00pm", "05:00pm-09:30pm", "11:00am-03:00pm", "05:00pm-09:30pm"])
 # b6= Business.create(name: "Hunan Home's Restaurant", address: "622 Jackson St ", city: "San Francisco", zipCode: 94133,lat: 37.7964057922363,lng: -122.405654907227,phone: "(415) 982-2844", price: "$$", creditCard: "Yes", parking: "Yes", takeOut: "Yes", delivery: "Yes", hours: ["11:30am-09:30pm", "11:30am-09:30pm", "11:30am-09:30pm", "11:30am-09:30pm", "11:30am-10:00pm", "11:30am-10:00pm", "11:30am-09:30pm"])
 # b7= Business.create(name: "No.1 SF BBQ", address: "939 Clement St ", city: "San Francisco", zipCode: 94118,lat: 37.78247,lng: -122.46936,phone: "(415) 819-3920", price: "$$", creditCard: "Yes", parking: "Yes", takeOut: "Yes", delivery: "Yes", hours: ["05:00pm-01:00am", "05:00pm-01:00am", "05:00pm-01:00am", "05:00pm-01:00am", "05:00pm-01:00am", "05:00pm-01:00am"])

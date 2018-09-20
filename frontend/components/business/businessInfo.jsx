@@ -9,6 +9,12 @@ class BusinessInfo extends React.Component {
 
   render() {
     const keyword = Object.keys(this.props.keywords);
+    let keywordString = "";
+    for(let i = 0 ; i < keyword.length ; i++) {
+      let currentKeywordId = keyword[i];
+      keywordString += this.props.keywords[currentKeywordId].name + ', ';
+    }
+
     return (
       <div>
         <div className="businessInfo">
@@ -18,7 +24,7 @@ class BusinessInfo extends React.Component {
                 <div className="businessInfoStars"><RatingStars rating={this.props.business.averageRating}/></div>
               <div>
                 <div className= "priceKeywordContainer">
-                  {this.props.business.price} - {keyword.map( key => <div key={key}>{this.props.keywords[key].name}</div>)}
+                  {this.props.business.price} - {keywordString.slice(0,keywordString.length-3)}
                 </div>
               </div>
             </div>
