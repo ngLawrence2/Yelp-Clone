@@ -15,6 +15,7 @@ class Api::BusinessesController < ApplicationController
       end
 
       if(!bounds.nil? && params[:search][:find].length!=0 )
+
       @businesses = Business.joins(:keywords).includes(:keywords).where("keywords.name ILIKE ? OR businesses.name ILIKE ?", "%#{params[:search][:find]}%" ,"%#{params[:search][:find]}%").in_bounds(bounds)
         render 'api/businesses/index'
         return
@@ -33,6 +34,7 @@ class Api::BusinessesController < ApplicationController
 
       #case 2: params with find with no bounds
       if (params[:search][:find].length != 0 && bounds.nil?)
+
         @businesses = Business.joins(:keywords).includes(:keywords).where("keywords.name ILIKE ? OR businesses.name ILIKE ?", "%#{params[:search][:find]}%" ,"%#{params[:search][:find]}%")
         render 'api/businesses/index'
         return

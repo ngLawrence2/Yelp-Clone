@@ -139,7 +139,7 @@ class BusinessIndex extends React.Component {
   filterBusinesses() {
 
     let result = [];
-
+      
     //we have no filters
     if (Object.keys(this.props.extraFilters).length === 0 && (Object.keys(this.props.openFilter).length===0 || this.props.openFilter.openNow===false)) {
       return Object.keys(this.props.businesses).map( obj => this.props.businesses[obj]);

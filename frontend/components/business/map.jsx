@@ -20,11 +20,14 @@ class MapBusiness extends React.Component {
     }
   }
 
+
+
   componentDidUpdate(prevProps) {
     this.removeOldMarkers();
     if (this.props.businesses) {
       // let businessIds = Object.keys(this.props.businesses);
       for(let i = 0; i < this.props.businesses.length; i++) {
+
         let markerLocation = {
           lat: this.props.businesses[i].lat,
           lng: this.props.businesses[i].lng
@@ -44,7 +47,15 @@ class MapBusiness extends React.Component {
 
 
   componentDidMount() {
+    // this.removeOldMarkers();
     this.updateMap(this.props);
+    if(!isNaN(this.props.loc.lat)) {
+      let locations = new google.maps.LatLng(this.props.loc);
+      let marker = new google.maps.Marker({
+          position: locations,
+          map: this.map
+        });
+    }
   }
 
   updateMap(nextProps) {
@@ -57,6 +68,7 @@ class MapBusiness extends React.Component {
       zoom: 11,
     }
     this.map = new google.maps.Map(map, options);
+
 
 
     if(this.props.updateResults) {
