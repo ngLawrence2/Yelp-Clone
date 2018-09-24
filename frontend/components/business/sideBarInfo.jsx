@@ -41,7 +41,6 @@ class SideBarInfo extends React.Component {
         <div className="moreInfo"><span>Delivery</span><span className="answers">{this.props.business.delivery}</span></div>
         <div className="moreInfo"><span>Take-out</span><span className="answers">{this.props.business.takeOut}</span></div>
         <div className="moreInfo"><span>Accepts Credit Cards</span><span className="answers">{this.props.business.creditCard}</span></div>
-        <div className="moreInfo"><span>Wi-Fi</span><span className="answers">{this.props.business.wifi}</span></div>
       </div>
     );
   }

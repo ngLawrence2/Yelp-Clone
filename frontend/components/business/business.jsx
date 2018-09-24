@@ -75,6 +75,7 @@ class Business extends React.Component {
 
               </div>
 
+              <div>
               <div className="photoSection">
               {photoKeys.map( photoId => (
                 <div className="photos" key={photoId}>
@@ -86,6 +87,7 @@ class Business extends React.Component {
 
               <Link to = {`/business/${this.props.business.id}/photos`} className="viewBusinessPhotos" >See all {Object.keys(this.props.photos).length}</Link>
 
+            </div>
         </div>
       </div>
 

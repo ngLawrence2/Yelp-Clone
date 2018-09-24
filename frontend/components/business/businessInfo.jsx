@@ -24,7 +24,7 @@ class BusinessInfo extends React.Component {
                 <div className="businessInfoStars"><RatingStars rating={this.props.business.averageRating}/></div>
               <div>
                 <div className= "priceKeywordContainer">
-                  {this.props.business.price} - {keywordString.slice(0,keywordString.length-3)}
+                  {this.props.business.price} - {keywordString.slice(0,keywordString.length-2)}
                 </div>
               </div>
             </div>
