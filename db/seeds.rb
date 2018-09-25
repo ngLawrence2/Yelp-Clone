@@ -8,26 +8,26 @@ u1 = User.create(fname:'Demo',lname:'User',zipCode:99999,email:'DemoUser@demo.co
 
 
 b1 = Business.create(name:"Creator", address:"680 Folsom St Ste 120",lat:37.7845584,lng:-122.39856409999999,zipCode:94107,hours:["10:00am-9:00pm", "10:00am-9:00pm", "10:00am-9:00pm", "10:00am-9:00pm", "10:00am-12:00am", "10:00am-1:00am", "Closed" ],price:"$$$",phone:"(806)680-3657",city:"San Francisco")
-b1.photo.attach(io: File.open('/home/lawrence/Desktop/images/Burger/ls.jpg'), filename: 'ls.jpg')
-b1.photo.attach(io: File.open('/home/lawrence/Desktop/images/Burger/a.jpg'), filename: 'ls.jpg')
-b1.photo.attach(io: File.open('/home/lawrence/Desktop/images/Burger/b.jpg'), filename: 'ls.jpg')
-b1.photo.attach(io: File.open('/home/lawrence/Desktop/images/Burger/c.jpg'), filename: 'ls.jpg')
+b1.photo.attach(io: File.open('/home/lawrence/Desktop/images/Burger/abc.jpg'), filename: 'abc.jpg')
+b1.photo.attach(io: File.open('/home/lawrence/Desktop/images/Burger/a.jpg'), filename: 'a.jpg')
+b1.photo.attach(io: File.open('/home/lawrence/Desktop/images/Burger/b.jpg'), filename: 'b.jpg')
+b1.photo.attach(io: File.open('/home/lawrence/Desktop/images/Burger/c.jpg'), filename: 'c.jpg')
 
 b2 = Business.create(name:"China Live", address:"644 Broadway",lat:37.7980047,lng:-122.4079241,zipCode:94133,hours:["12:00pm-6:00pm", "12:00pm-8:00pm", "12:00pm-8:00pm", "12:00pm-8:00pm","12:00pm-10:00pm", "11:00am-10:00pm", "11:00am-6:00pm" ],price:"$",phone:"(806)633-3657",city:"San Francisco")
-b2.photo.attach(io: File.open('/home/lawrence/Desktop/images/Noodle/258s.jpg'), filename: 'ls.jpg')
-b2.photo.attach(io: File.open('/home/lawrence/Desktop/images/Noodle/2581.jpg'), filename: 'ls.jpg')
-b2.photo.attach(io: File.open('/home/lawrence/Desktop/images/Noodle/o1.jpg'), filename: 'ls.jpg')
-b2.photo.attach(io: File.open('/home/lawrence/Desktop/images/Noodle/o.jpg'), filename: 'ls.jpg')
+b2.photo.attach(io: File.open('/home/lawrence/Desktop/images/Noodle/258s.jpg'), filename: '21.jpg')
+b2.photo.attach(io: File.open('/home/lawrence/Desktop/images/Noodle/2581.jpg'), filename: '32.jpg')
+b2.photo.attach(io: File.open('/home/lawrence/Desktop/images/Noodle/o1.jpg'), filename: '3.jpg')
+b2.photo.attach(io: File.open('/home/lawrence/Desktop/images/Noodle/o.jpg'), filename: '123.jpg')
 
 b3 = Business.create(name:"McDonald's", address:"6300 E 14th St",lat:37.7638791,lng:-122.19619969999997,zipCode:94621,hours:["12:00pm-6:00pm", "12:00pm-8:00pm", "12:00pm-8:00pm", "12:00pm-8:00pm","12:00pm-10:00pm", "11:00am-10:00pm", "11:00am-6:00pm" ],price:"$",phone:"(816)643-2619",city:"Oakland")
-b3.photo.attach(io: File.open('/home/lawrence/Desktop/images/McDonalds/ac.jpg'), filename: 'ls.jpg')
-b3.photo.attach(io: File.open('/home/lawrence/Desktop/images/McDonalds/food.jpg'), filename: 'ls.jpg')
-b3.photo.attach(io: File.open('/home/lawrence/Desktop/images/McDonalds/mcdonalds.jpg'), filename: 'ls.jpg')
+b3.photo.attach(io: File.open('/home/lawrence/Desktop/images/McDonalds/ac.jpg'), filename: 'dsa.jpg')
+b3.photo.attach(io: File.open('/home/lawrence/Desktop/images/McDonalds/food.jpg'), filename: 's.jpg')
+b3.photo.attach(io: File.open('/home/lawrence/Desktop/images/McDonalds/mcdonalds.jpg'), filename: 'as.jpg')
 
 b4 = Business.create(name:"Super Duper Burgers", address:"721 Market St",lat:37.786860,lng:-122.403910,zipCode:94133,hours:["08:00am-11:00pm", "08:00am-11:00pm", "08:00am-11:00pm", "08:00am-11:00pm","08:00am-12:00am", "08:00am-12:00am", "08:00am-12:00am" ],price:"$$",phone:"(415)538-3437",city:"San Francisco")
-b4.photo.attach(io: File.open('/home/lawrence/Desktop/images/Burger/superduper1.jpg'), filename: 'ls.jpg')
-b4.photo.attach(io: File.open('/home/lawrence/Desktop/images/Burger/superduper2.jpg'), filename: 'ls.jpg')
-b4.photo.attach(io: File.open('/home/lawrence/Desktop/images/Burger/superduper.jpg'), filename: 'ls.jpg')
+b4.photo.attach(io: File.open('/home/lawrence/Desktop/images/Burger/superduper1.jpg'), filename: 'bsd.jpg')
+b4.photo.attach(io: File.open('/home/lawrence/Desktop/images/Burger/superduper2.jpg'), filename: 'ew.jpg')
+b4.photo.attach(io: File.open('/home/lawrence/Desktop/images/Burger/superduper.jpg'), filename: 'sq.jpg')
 
 
 r1 = Review.create(body:'this place is the best',rating:5, user_id:u1.id, business_id: b1.id)
