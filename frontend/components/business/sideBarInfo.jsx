@@ -16,7 +16,9 @@ class SideBarInfo extends React.Component {
     );
   }
 
+
   render() {
+    debugger;
     const currentDate = new Date();
     const day = currentDate.getDay();
     return(
@@ -37,10 +39,9 @@ class SideBarInfo extends React.Component {
           <div><span className="currentDay">Sunday</span> <span className="dayHours">{this.props.business.hours[6]}</span></div>
         </div>
 
-        <div className="moreInfo"><span>Takes Reservations</span><span className="answers">{this.props.business.reservations}</span></div>
-        <div className="moreInfo"><span>Delivery</span><span className="answers">{this.props.business.delivery}</span></div>
-        <div className="moreInfo"><span>Take-out</span><span className="answers">{this.props.business.takeOut}</span></div>
-        <div className="moreInfo"><span>Accepts Credit Cards</span><span className="answers">{this.props.business.creditCard}</span></div>
+        <div className="moreInfo"><span>Delivery</span><span className="answers">{this.props.business.delivery ? "Yes" : "No"}</span></div>
+        <div className="moreInfo"><span>Take-out</span><span className="answers">{this.props.business.takeOut ? "Yes" : "No"}</span></div>
+        <div className="moreInfo"><span>Accepts Credit Cards</span><span className="answers">{this.props.business.creditCard ? "Yes" : "No"}</span></div>
       </div>
     );
   }
